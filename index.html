@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- page:start -->
+<title>The Biscuit Barrel</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A whimsical field guide to British biscuits: history, recipes, dunkability and a Biscuit of the Day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&family=Shrikhand&display=swap">
+<link rel="stylesheet" href="styles.css">
+<!-- head:end -->
+</head>
+<body>
+<!-- body:start -->
+<a class="skip" href="#tin">Skip to the biscuits</a>
+
+<header class="masthead">
+  <div class="gingham" aria-hidden="true"></div>
+  <div class="wrap masthead-inner">
+    <div class="title-card">
+      <p class="eyebrow">A field guide to the British biscuit tin</p>
+      <h1 class="title">The Biscuit <span>Barrel</span></h1>
+      <p class="lede">An entirely devoted guide to Britain's finest biscuits: where they came from, how to bake them at home, and how long they last in a mug of builder's tea.</p>
+      <div class="quick">
+        <a class="btn primary" href="#today">Today's biscuit</a>
+        <a class="btn" href="#tin">Search the tin</a>
+        <button class="btn" type="button" id="surprise">Surprise me</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="today" class="today wrap" aria-labelledby="today-title"></section>
+
+  <section id="tin" class="tin" aria-labelledby="tin-title">
+    <div class="wrap tin-head">
+      <p class="eyebrow">The tin</p>
+      <h2 id="tin-title">Every biscuit worth a cuppa</h2>
+      <p>Search by name, nickname, flavour, maker or place. Try <em>jam</em>, <em>scottish</em>, <em>oats</em> or <em>squashed fly</em>.</p>
+    </div>
+
+    <div class="searchbar">
+      <div class="wrap">
+        <div class="search-row">
+          <label class="search-box" for="q">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+            <input id="q" type="search" placeholder="Search the biscuit tin…" autocomplete="off" spellcheck="false" aria-label="Search biscuits">
+            <kbd aria-hidden="true">/</kbd>
+            <button class="clear-btn" type="button" id="clear" aria-label="Clear search" hidden>×</button>
+          </label>
+          <label class="sort" for="sort">Sort
+            <select id="sort">
+              <option value="az">A to Z</option>
+              <option value="oldest">Oldest first</option>
+              <option value="newest">Newest first</option>
+              <option value="dunk">Best dunkers</option>
+              <option value="kcal">Lightest first</option>
+            </select>
+          </label>
+        </div>
+        <div class="chips" id="chips" role="group" aria-label="Filter by type"></div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <p class="results-line" id="count" aria-live="polite"></p>
+      <ul class="grid" id="grid"></ul>
+      <div class="empty" id="empty" hidden>
+        <svg viewBox="0 0 120 90" aria-hidden="true"><path d="M14 30h74v30a26 26 0 0 1-26 26H40a26 26 0 0 1-26-26z" fill="var(--cup)" stroke="var(--cup-line)" stroke-width="3"/><path d="M88 38h8a12 12 0 0 1 0 24h-9" fill="none" stroke="var(--cup-line)" stroke-width="5"/><ellipse cx="51" cy="30" rx="37" ry="7" fill="var(--tea)"/><circle cx="40" cy="31" r="3" fill="#c98e4a"/><circle cx="56" cy="29" r="2" fill="#c98e4a"/><circle cx="64" cy="32" r="2.4" fill="#c98e4a"/></svg>
+        <h3>Nothing but crumbs</h3>
+        <p>No biscuits match that. Put the kettle on and try another word.</p>
+        <button class="btn" type="button" id="reset">Show every biscuit</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>On the science of dunking.</strong> In 1998 the physicist Dr Len Fisher applied the Washburn equation to biscuits and tea, and found that tea soaks into a biscuit through tiny pores between its sugar and starch. Our dunk times are kitchen-table estimates for a mug of hot builder's tea. Your mug may vary.</p>
+    <p>The recipes here are home-kitchen tributes, not the manufacturers' secret formulas. Biscuit brand names belong to their owners. Calories are approximate, per biscuit.</p>
+  </div>
+</footer>
+
+<dialog class="detail" id="detail" aria-labelledby="detail-title"></dialog>
+
+<script src="biscuits.js"></script>
+<script src="art.js"></script>
+<script src="app.js"></script>
+<!-- body:end -->
+</body>
+</html>
