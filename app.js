@@ -27,7 +27,7 @@
 
   function cups(n) {
     let s = `<span class="cups" role="img" aria-label="Dunkability ${n} out of 5">`;
-    for (let i = 1; i <= 5; i++) s += `<span class="${i <= n ? "" : "off"}">${CUP}</span>`;
+    for (let i = 1; i <= 5; i++) s += `<span class="${i <= n ? "" : "off"}" style="--c:${i}">${CUP}</span>`;
     return s + `</span>`;
   }
 
@@ -119,6 +119,11 @@
           <div class="dunker">${Art.svg(b, { noDoily: true })}</div>
           ${cupFront}
           ${crumbs}
+          <svg class="steam" viewBox="0 0 60 60" aria-hidden="true">
+            <path d="M18 58 q-8 -10 0 -20 t0 -20" />
+            <path d="M30 58 q-8 -10 0 -20 t0 -20" />
+            <path d="M42 58 q-8 -10 0 -20 t0 -20" />
+          </svg>
         </div>
         <div class="today-text">
           <p class="eyebrow">Biscuit of the Day · ${esc(date)}</p>
@@ -178,6 +183,15 @@
     if (!survives) stage.classList.add("fail");
     stage.classList.add("dunking");
     $(".dunker", stage).addEventListener("animationend", finish, { once: true });
+    setTimeout(() => {
+      const r = stage.getBoundingClientRect();
+      burst(r.left + r.width * 0.755, r.top + r.height * 0.66, {
+        count: survives ? 10 : 18,
+        colors: ["var(--tea)", "#c98e4a", "#b9773f"],
+        round: true,
+        lift: 90
+      });
+    }, 1050);
   }
 
   /* ---------- Search and the grid ---------- */
@@ -219,8 +233,8 @@
     $("#chips").innerHTML = chip("all", "All biscuits", total) + CATS.map((c) => chip(c, c, counts[c] || 0)).join("");
   }
 
-  function card(b, ts) {
-    return `<li><a class="card" href="#${b.id}" data-open="${b.id}">
+  function card(b, ts, i) {
+    return `<li style="--i:${Math.min(i, 12)}"><a class="card" href="#${b.id}" data-open="${b.id}">
       <div class="plate">${b.id === today.id ? `<span class="today-flag">Today's pick</span>` : ""}${Art.svg(b, { decorative: true })}</div>
       <div class="body">
         <p class="meta">${esc(b.category)} · ${esc(b.yearLabel)}</p>
@@ -247,7 +261,7 @@
       .sort((x, y) => x.r - y.r || SORTS[state.sort](x.b, y.b));
     visible = list.map((m) => m.b);
 
-    $("#grid").innerHTML = list.map((m) => card(m.b, ts)).join("");
+    $("#grid").innerHTML = list.map((m, i) => card(m.b, ts, i)).join("");
     $("#empty").hidden = list.length > 0;
     const where = state.cat === "all" ? "" : ` in ${state.cat}`;
     const what = state.q.trim() ? ` matching “${esc(state.q.trim())}”` : "";
@@ -379,6 +393,10 @@
     const link = e.target.closest("[data-open]");
     if (!link) return;
     e.preventDefault();
+    const r = link.getBoundingClientRect();
+    const x = e.clientX || r.left + r.width / 2;
+    const y = e.clientY || r.top + r.height / 2;
+    if (!link.closest("dialog")) burst(x, y);
     openDetail(link.dataset.open);
   });
 
@@ -414,7 +432,10 @@
   });
   $("#surprise").addEventListener("click", () => {
     const pool = B.filter((b) => b.id !== current);
-    openDetail(pool[Math.floor(Math.random() * pool.length)].id);
+    const pick = pool[Math.floor(Math.random() * pool.length)];
+    if (reduceMotion) return openDetail(pick.id);
+    rollAcross(pick);
+    setTimeout(() => openDetail(pick.id), 750);
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "/" && !e.target.matches("input, textarea, select") && !dlg.open) {
@@ -428,12 +449,91 @@
     if (byId.has(id) && id !== current) openDetail(id);
   });
 
+  /* ---------- Motion ---------- */
+
+  const CRUMB_COLOURS = ["#c98e4a", "#e2b16a", "#9c5a2a", "#f0d49a", "#5a3420"];
+
+  // Crumbs (or tea droplets) that fly out from a point and fall away.
+  function burst(x, y, opts = {}) {
+    if (reduceMotion) return;
+    const { count = 14, colors = CRUMB_COLOURS, round = false, lift = 70 } = opts;
+    for (let i = 0; i < count; i++) {
+      const el = document.createElement("span");
+      el.className = "particle" + (round ? " drop" : "");
+      const size = 4 + Math.random() * 6;
+      el.style.cssText = `left:${x}px;top:${y}px;width:${size}px;height:${size * (round ? 1 : 0.8)}px;background:${colors[i % colors.length]}`;
+      document.body.appendChild(el);
+      const angle = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 1.2;
+      const dist = 30 + Math.random() * lift;
+      const dx = Math.cos(angle) * dist, dy = Math.sin(angle) * dist;
+      const spin = (Math.random() - 0.5) * 720;
+      el.animate(
+        [
+          { transform: "translate(-50%, -50%)", opacity: 1 },
+          { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) rotate(${spin / 2}deg)`, opacity: 1, offset: 0.45 },
+          { transform: `translate(calc(-50% + ${dx * 1.4}px), calc(-50% + ${dy + 110}px)) rotate(${spin}deg)`, opacity: 0 }
+        ],
+        { duration: 700 + Math.random() * 400, easing: "cubic-bezier(.2,.7,.4,1)" }
+      ).onfinish = () => el.remove();
+    }
+  }
+
+  // A biscuit rolls across the bottom of the screen like a cartwheel.
+  function rollAcross(b) {
+    const el = document.createElement("div");
+    el.className = "roller";
+    el.setAttribute("aria-hidden", "true");
+    el.innerHTML = Art.svg(b, { noDoily: true, decorative: true });
+    document.body.appendChild(el);
+    const travel = window.innerWidth + 220;
+    el.animate(
+      [
+        { transform: "translateX(0) rotate(0deg)" },
+        { transform: `translateX(${travel}px) rotate(${(travel / (Math.PI * 110)) * 360}deg)` }
+      ],
+      { duration: 1100, easing: "cubic-bezier(.45,.05,.55,.95)" }
+    ).onfinish = () => el.remove();
+  }
+
+  // Split the masthead title into letters so they can drop in one by one.
+  function dropInTitle() {
+    const h1 = $(".title");
+    h1.setAttribute("aria-label", h1.textContent.replace(/\s+/g, " ").trim());
+    let i = 0;
+    const walk = (node) => {
+      for (const child of [...node.childNodes]) {
+        if (child.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          for (const part of child.textContent.split(/(\s+)/)) {
+            if (!part) continue;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(" ")); continue; }
+            const word = document.createElement("span");
+            word.className = "word";
+            word.setAttribute("aria-hidden", "true");
+            for (const ch of part) {
+              const l = document.createElement("span");
+              l.className = "ltr";
+              l.style.setProperty("--i", i++);
+              l.textContent = ch;
+              word.appendChild(l);
+            }
+            frag.appendChild(word);
+          }
+          child.replaceWith(frag);
+        } else {
+          walk(child);
+        }
+      }
+    };
+    walk(h1);
+  }
+
   /* ---------- Footer ---------- */
 
   function renderFooter() {
     const firstOf = CATS.map((c) => B.find((b) => b.category === c && b.id !== today.id) || B.find((b) => b.category === c));
     $("#foot-parade").innerHTML = [today, ...firstOf]
-      .map((b) => `<a href="#${b.id}" data-open="${b.id}" tabindex="-1">${Art.svg(b, { noDoily: true, decorative: true })}</a>`)
+      .map((b, i) => `<a href="#${b.id}" data-open="${b.id}" tabindex="-1" style="--i:${i}">${Art.svg(b, { noDoily: true, decorative: true })}</a>`)
       .join("");
     $("#foot-cats").innerHTML = CATS.map(
       (c) => `<li><button type="button" data-foot-cat="${esc(c)}">${esc(c)}<span class="n">${B.filter((b) => b.category === c).length}</span></button></li>`
@@ -448,6 +548,7 @@
     });
   }
 
+  dropInTitle();
   renderToday();
   renderFooter();
   render();

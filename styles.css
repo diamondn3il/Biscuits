@@ -154,7 +154,7 @@ button, input, select { font: inherit; color: inherit; }
   letter-spacing: -0.01em;
   color: var(--ink);
 }
-.title span { color: var(--jam); display: inline-block; transform: rotate(-3deg); }
+.title > span:not(.word) { color: var(--jam); display: inline-block; transform: rotate(-3deg); }
 .lede { font-size: var(--step-1); max-width: 58ch; line-height: 1.45; }
 .quick { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
 
@@ -583,6 +583,111 @@ dialog.detail[open] { animation: pop 0.25s cubic-bezier(.3, 1.4, .5, 1); }
   .foot-grid { grid-template-columns: minmax(0, 1fr); }
   .detail-bar .nav .label { display: none; }
 }
+
+/* ---------- Motion ---------- */
+/* Every animation ends in the element's normal resting state, so the page is complete without them. */
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } }
+@keyframes drop-in {
+  0% { opacity: 0; transform: translateY(-70px) rotate(-24deg); }
+  55% { opacity: 1; transform: translateY(6px) rotate(4deg); }
+  75% { transform: translateY(-3px) rotate(-1deg); }
+}
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(18px) rotate(-2.5deg) scale(0.95); }
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(3deg); }
+}
+@keyframes hop {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-5px) rotate(-8deg); }
+}
+@keyframes steam {
+  0% { stroke-dashoffset: 60; opacity: 0; transform: translateY(6px); }
+  30% { opacity: 0.7; }
+  100% { stroke-dashoffset: 0; opacity: 0; transform: translateY(-10px); }
+}
+@keyframes spin-in {
+  from { opacity: 0; transform: rotate(-160deg) scale(0.5); }
+  70% { opacity: 1; transform: rotate(8deg) scale(1.03); }
+}
+
+.title-card { animation: rise 0.7s cubic-bezier(.2, .8, .3, 1) both; }
+.title .word { display: inline-block; white-space: nowrap; }
+.title .ltr {
+  display: inline-block;
+  animation: drop-in 0.75s cubic-bezier(.3, 1.2, .5, 1) both;
+  animation-delay: calc(var(--i) * 45ms + 250ms);
+}
+.title-card .lede { animation: rise 0.6s ease both 0.75s; }
+.title-card .quick { animation: rise 0.6s ease both 0.9s; }
+.today-card { animation: rise 0.7s cubic-bezier(.2, .8, .3, 1) both 0.35s; }
+
+.stage .dunker .biscuit-svg { animation: bob 4.5s ease-in-out infinite; }
+.stage.dunking .dunker .biscuit-svg { animation-play-state: paused; }
+.stage .steam {
+  position: absolute; left: 64.5%; top: 40%; width: 22%;
+  z-index: 1; overflow: visible; pointer-events: none;
+}
+.stage .steam path {
+  fill: none; stroke: var(--muted); stroke-width: 2.4; stroke-linecap: round;
+  stroke-dasharray: 60; opacity: 0;
+  animation: steam 3.2s ease-out infinite;
+}
+.stage .steam path:nth-child(2) { animation-delay: 1.1s; }
+.stage .steam path:nth-child(3) { animation-delay: 2.1s; }
+
+.grid > li {
+  animation: pop-in 0.5s cubic-bezier(.3, 1.4, .5, 1) both;
+  animation-delay: calc(var(--i, 0) * 40ms);
+}
+.card:hover .cups > span:not(.off) { animation: hop 0.45s ease both; animation-delay: calc(var(--c) * 60ms); }
+.cups > span { display: inline-flex; }
+
+.empty svg { animation: bob 3s ease-in-out infinite; }
+
+dialog.detail[open] .detail-art .biscuit {
+  transform-origin: 100px 100px; transform-box: view-box;
+  animation: spin-in 0.9s cubic-bezier(.3, 1.3, .5, 1) both 0.05s;
+}
+dialog.detail[open] .detail-text > *,
+dialog.detail[open] .stats > div,
+dialog.detail[open] .method li,
+dialog.detail[open] .ingredients li { animation: rise 0.45s ease both; }
+dialog.detail[open] .detail-text > :nth-child(1) { animation-delay: 0.05s; }
+dialog.detail[open] .detail-text > :nth-child(2) { animation-delay: 0.1s; }
+dialog.detail[open] .detail-text > :nth-child(3) { animation-delay: 0.15s; }
+dialog.detail[open] .detail-text > :nth-child(4) { animation-delay: 0.2s; }
+dialog.detail[open] .detail-text > :nth-child(5) { animation-delay: 0.25s; }
+dialog.detail[open] .detail-text > :nth-child(6) { animation-delay: 0.3s; }
+dialog.detail[open] .detail-text > :nth-child(7) { animation-delay: 0.35s; }
+dialog.detail[open] .detail-text > :nth-child(8) { animation-delay: 0.4s; }
+dialog.detail[open] .stats > div { animation-delay: 0.2s; }
+dialog.detail[open] .method li:nth-child(1), dialog.detail[open] .ingredients li:nth-child(1) { animation-delay: 0.3s; }
+dialog.detail[open] .method li:nth-child(2), dialog.detail[open] .ingredients li:nth-child(2) { animation-delay: 0.36s; }
+dialog.detail[open] .method li:nth-child(3), dialog.detail[open] .ingredients li:nth-child(3) { animation-delay: 0.42s; }
+dialog.detail[open] .method li:nth-child(4), dialog.detail[open] .ingredients li:nth-child(4) { animation-delay: 0.48s; }
+dialog.detail[open] .method li:nth-child(5), dialog.detail[open] .ingredients li:nth-child(5) { animation-delay: 0.54s; }
+dialog.detail[open] .method li:nth-child(6), dialog.detail[open] .ingredients li:nth-child(6) { animation-delay: 0.6s; }
+dialog.detail[open] .method li:nth-child(n+7), dialog.detail[open] .ingredients li:nth-child(n+7) { animation-delay: 0.66s; }
+.method li::before { transition: transform 0.3s cubic-bezier(.3, 1.6, .5, 1); }
+.method li:hover::before { transform: rotate(-12deg) scale(1.12); }
+.ingredients input:checked + span { animation: hop 0.35s ease; display: inline-block; }
+
+.foot-parade .biscuit-svg { animation: bob 3.6s ease-in-out infinite; animation-delay: calc(var(--i, 0) * -0.45s); }
+
+.particle {
+  position: fixed; z-index: 1000; pointer-events: none;
+  border-radius: 2px;
+}
+.particle.drop { border-radius: 50%; }
+.roller {
+  position: fixed; z-index: 1000; pointer-events: none;
+  left: -180px; bottom: max(24px, env(safe-area-inset-bottom, 0px));
+  width: 110px;
+}
+.roller .biscuit-svg { width: 100%; height: auto; display: block; overflow: visible; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
