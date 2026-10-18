@@ -428,7 +428,28 @@
     if (byId.has(id) && id !== current) openDetail(id);
   });
 
+  /* ---------- Footer ---------- */
+
+  function renderFooter() {
+    const firstOf = CATS.map((c) => B.find((b) => b.category === c && b.id !== today.id) || B.find((b) => b.category === c));
+    $("#foot-parade").innerHTML = [today, ...firstOf]
+      .map((b) => `<a href="#${b.id}" data-open="${b.id}" tabindex="-1">${Art.svg(b, { noDoily: true, decorative: true })}</a>`)
+      .join("");
+    $("#foot-cats").innerHTML = CATS.map(
+      (c) => `<li><button type="button" data-foot-cat="${esc(c)}">${esc(c)}<span class="n">${B.filter((b) => b.category === c).length}</span></button></li>`
+    ).join("");
+    $("#foot-today").innerHTML = `Today's biscuit: <a href="#${today.id}" data-open="${today.id}">${esc(today.name)}</a>`;
+    $("#foot-cats").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-foot-cat]");
+      if (!btn) return;
+      state.cat = btn.dataset.footCat;
+      setQuery("");
+      $("#tin").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  }
+
   renderToday();
+  renderFooter();
   render();
   const start = location.hash.slice(1);
   if (byId.has(start)) openDetail(start);

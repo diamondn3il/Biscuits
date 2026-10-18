@@ -499,14 +499,76 @@ dialog.detail[open] { animation: pop 0.25s cubic-bezier(.3, 1.4, .5, 1); }
 .recipe-note { font-size: 0.9rem; color: var(--muted); font-style: italic; }
 
 /* ---------- Footer ---------- */
-.site-foot { border-top: 2px solid var(--line); }
-.site-foot .wrap { padding-block: 28px 40px; display: grid; gap: 10px; color: var(--muted); font-size: 0.95rem; }
-.site-foot strong { color: var(--ink); }
-.site-foot p { max-width: 75ch; }
+.site-foot {
+  --foot-bg: #1c2640;
+  --foot-ink: #edf0f6;
+  --foot-muted: #b3bdd3;
+  position: relative;
+  margin-top: 40px;
+  background: var(--foot-bg);
+  color: var(--foot-muted);
+  font-size: 0.97rem;
+}
+:root[data-theme="dark"] .site-foot { --foot-bg: #0a1120; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .site-foot { --foot-bg: #0a1120; } }
+/* a scalloped, doily-like top edge */
+.site-foot::before {
+  content: "";
+  position: absolute; left: 0; right: 0; top: -15px; height: 16px;
+  background: radial-gradient(circle at 14px 16px, var(--foot-bg) 13px, transparent 13.5px) repeat-x;
+  background-size: 28px 16px;
+}
+.foot-parade {
+  display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(8px, 2vw, 22px);
+  padding-block: 26px 4px;
+}
+.foot-parade a { display: block; width: clamp(34px, 7vw, 64px); transition: transform 0.35s cubic-bezier(.3, 1.6, .5, 1); }
+.foot-parade a:nth-child(odd) { transform: rotate(-8deg); }
+.foot-parade a:nth-child(even) { transform: rotate(7deg) translateY(4px); }
+.foot-parade a:hover, .foot-parade a:focus-visible { transform: rotate(0) translateY(-6px) scale(1.12); }
+.foot-parade .biscuit-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.foot-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(22px, 4vw, 44px);
+  padding-block: 28px 32px;
+}
+.foot-grid > * { min-width: 0; display: grid; gap: 10px; align-content: start; }
+.foot-title { font-family: var(--font-display); font-size: 1.9rem; line-height: 1.1; color: var(--foot-ink); }
+.foot-title span { color: #ff8095; display: inline-block; transform: rotate(-3deg); }
+.foot-head {
+  font-family: var(--font-utility); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #f2c14e;
+}
+.foot-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
+.foot-col button, .foot-today a {
+  background: none; border: 0; padding: 0; cursor: pointer; text-align: left;
+  color: var(--foot-ink); text-decoration: underline; text-decoration-color: rgba(242, 193, 78, 0.5);
+  text-underline-offset: 3px; text-decoration-thickness: 1.5px;
+}
+.foot-col button:hover, .foot-today a:hover { text-decoration-color: #f2c14e; }
+.foot-col button .n { font-family: var(--font-utility); font-size: 0.72rem; color: var(--foot-muted); margin-left: 4px; }
+.foot-today { font-style: italic; }
+.foot-base {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px;
+  padding-block: 18px max(26px, env(safe-area-inset-bottom, 0px));
+  border-top: 1px dashed rgba(237, 240, 246, 0.2);
+  font-family: var(--font-utility); font-size: 0.78rem; letter-spacing: 0.04em;
+}
+.foot-top {
+  color: var(--foot-bg); background: #f2c14e;
+  border-radius: 999px; padding: 6px 16px;
+  font-family: var(--font-body); font-weight: 700; font-size: 0.95rem; letter-spacing: 0;
+  text-decoration: none;
+}
+.foot-top:hover { background: #ffd36b; }
+.site-foot :focus-visible { outline-color: #f2c14e; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 820px) {
   .today-card, .detail-top, .recipe-cols { grid-template-columns: minmax(0, 1fr); }
+  .foot-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .foot-brand { grid-column: 1 / -1; }
   .stage { max-width: 380px; }
 }
 @media (max-width: 480px) {
@@ -518,6 +580,7 @@ dialog.detail[open] { animation: pop 0.25s cubic-bezier(.3, 1.4, .5, 1); }
   .card .plate { padding: 10px 10px 2px; }
   .card .body { padding: 10px 12px 12px; }
   .search-box kbd { display: none; }
+  .foot-grid { grid-template-columns: minmax(0, 1fr); }
   .detail-bar .nav .label { display: none; }
 }
 

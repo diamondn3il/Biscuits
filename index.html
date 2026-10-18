@@ -15,6 +15,7 @@
 </head>
 <body>
 <!-- body:start -->
+<span id="top"></span>
 <a class="skip" href="#tin">Skip to the biscuits</a>
 
 <header class="masthead">
@@ -80,9 +81,29 @@
 </main>
 
 <footer class="site-foot">
-  <div class="wrap">
-    <p><strong>On the science of dunking.</strong> In 1998 the physicist Dr Len Fisher applied the Washburn equation to biscuits and tea, and found that tea soaks into a biscuit through tiny pores between its sugar and starch. Our dunk times are kitchen-table estimates for a mug of hot builder's tea. Your mug may vary.</p>
-    <p>The recipes here are home-kitchen tributes, not the manufacturers' secret formulas. Biscuit brand names belong to their owners. Calories are approximate, per biscuit.</p>
+  <div class="wrap foot-parade" id="foot-parade" aria-hidden="true"></div>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <p class="foot-title">The Biscuit <span>Barrel</span></p>
+      <p>A field guide to the British biscuit tin, kept for anyone who has ever argued about the right way to eat a custard cream.</p>
+      <p class="foot-today" id="foot-today"></p>
+    </div>
+    <nav class="foot-col" aria-label="Browse by type">
+      <p class="foot-head">Browse the tin</p>
+      <ul id="foot-cats"></ul>
+    </nav>
+    <div class="foot-col">
+      <p class="foot-head">The science of dunking</p>
+      <p>In 1998 the physicist Dr Len Fisher applied the Washburn equation to biscuits and tea, and found that tea soaks in through tiny pores between the sugar and starch. Our dunk times are kitchen-table estimates for a mug of hot builder's tea. Your mug may vary.</p>
+    </div>
+    <div class="foot-col">
+      <p class="foot-head">The small print</p>
+      <p>The recipes here are home-kitchen tributes, not the manufacturers' secret formulas. Biscuit brand names belong to their owners. Calories are approximate, per biscuit.</p>
+    </div>
+  </div>
+  <div class="wrap foot-base">
+    <p>Baked in Britain. Best served with a cup of tea.</p>
+    <a class="foot-top" href="#top">Back to the top <span aria-hidden="true">↑</span></a>
   </div>
 </footer>
 
