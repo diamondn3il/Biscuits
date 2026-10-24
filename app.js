@@ -23,6 +23,9 @@
 
   /* ---------- Small bits of shared markup ---------- */
 
+  // Each type of biscuit has its own pastel, defined as a token in styles.css.
+  const catVar = (c) => `var(--cat-${c.toLowerCase().replace(/[^a-z]+/g, "-")})`;
+
   const CUP = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h13v5a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6z" fill="currentColor"/><path d="M16 10h1.5a3 3 0 0 1 0 6H15" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 2.5c-1 1.2 1 1.8 0 3.2M11 2.5c-1 1.2 1 1.8 0 3.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>`;
 
   function cups(n) {
@@ -79,7 +82,7 @@
       <circle cx="60" cy="60" r="38" fill="none" stroke="#b8263f" stroke-width="1.6" stroke-dasharray="3 3"/>
       <g font-family="'IBM Plex Mono', ui-monospace, monospace" font-weight="600" fill="#1c2640" text-anchor="middle">
         <text x="60" y="50" font-size="11" letter-spacing="1.5">BISCUIT</text>
-        <text x="60" y="64" font-size="9" font-style="italic" font-family="Alegreya, Georgia, serif">of the</text>
+        <text x="60" y="64" font-size="9" font-style="italic" font-family="Nunito, system-ui, sans-serif">of the</text>
         <text x="60" y="80" font-size="16" letter-spacing="2">DAY</text>
       </g>
     </svg>`;
@@ -111,7 +114,7 @@
     const b = today;
     const date = new Date().toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" });
     $("#today").innerHTML = `
-      <div class="today-card">
+      <div class="today-card" style="--cat:${catVar(b.category)}">
         <div class="stage" id="stage">
           ${rosette()}
           <div class="plate-doily">${Art.doilySvg()}</div>
@@ -229,12 +232,12 @@
 
   function renderChips(counts, total) {
     const chip = (value, label, n) =>
-      `<button class="chip" type="button" data-cat="${esc(value)}" aria-pressed="${state.cat === value}" ${n === 0 && state.cat !== value ? "disabled" : ""}>${esc(label)} <span class="n">${n}</span></button>`;
+      `<button class="chip" type="button" data-cat="${esc(value)}" style="--cat:${value === "all" ? "var(--cat-cream-sandwiches)" : catVar(value)}" aria-pressed="${state.cat === value}" ${n === 0 && state.cat !== value ? "disabled" : ""}>${esc(label)} <span class="n">${n}</span></button>`;
     $("#chips").innerHTML = chip("all", "All biscuits", total) + CATS.map((c) => chip(c, c, counts[c] || 0)).join("");
   }
 
   function card(b, ts, i) {
-    return `<li style="--i:${Math.min(i, 12)}"><a class="card" href="#${b.id}" data-open="${b.id}">
+    return `<li style="--i:${Math.min(i, 12)}"><a class="card" href="#${b.id}" data-open="${b.id}" style="--cat:${catVar(b.category)}">
       <div class="plate">${b.id === today.id ? `<span class="today-flag">Today's pick</span>` : ""}${Art.svg(b, { decorative: true })}</div>
       <div class="body">
         <p class="meta">${esc(b.category)} · ${esc(b.yearLabel)}</p>
@@ -360,6 +363,7 @@
     if (!b) return;
     current = id;
     dlg.innerHTML = detailHtml(b);
+    dlg.style.setProperty("--cat", catVar(b.category));
     if (!dlg.open) dlg.showModal();
     dlg.scrollTop = 0;
     setHash(id);
@@ -547,6 +551,11 @@
       $("#tin").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
     });
   }
+
+  // A few biscuits floating around the masthead.
+  $("#floaters").innerHTML = ["jammie-dodger", "custard-cream", "party-ring", "jaffa-cake", "iced-gems", "bourbon"]
+    .map((id, i) => `<span style="--i:${i}">${Art.svg(byId.get(id), { noDoily: true, decorative: true })}</span>`)
+    .join("");
 
   dropInTitle();
   renderToday();
