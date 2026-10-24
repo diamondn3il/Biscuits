@@ -437,7 +437,7 @@ button, input, select { font: inherit; color: inherit; }
   box-shadow: var(--clay-sm);
   cursor: pointer;
 }
-.chips { display: flex; gap: 10px; overflow-x: auto; padding: 2px 2px 8px; scrollbar-width: thin; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; padding: 2px 2px 8px; }
 .chip {
   flex: none;
   min-height: 44px;
@@ -723,6 +723,11 @@ dialog.detail[open] { animation: pop 0.35s var(--spring); }
   .card .body { padding: 10px 12px 12px; }
   .card .dunk-row { flex-wrap: wrap; }
   .search-box kbd { display: none; }
+  /* with every chip on show the bar gets tall, so on phones it scrolls with the page */
+  .searchbar { position: static; }
+  .chips { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+  .chip { padding-inline: 8px 10px; font-size: 0.85rem; line-height: 1.2; text-align: left; }
+  .chip .n { margin-left: auto; }
   .detail-bar .nav .label { display: none; }
   .foot-grid { grid-template-columns: minmax(0, 1fr); }
 }
