@@ -102,3 +102,30 @@ Link in bio 👆
 `posts.html` holds the three post designs. Open it in a browser from this folder and each
 `<section class="post">` is a 1080 × 1350 post. Copy a section, change the biscuit and the
 text, then screenshot the section at full size.
+
+## Reel: Reggie the Rich Tea
+
+`reggie/reggie-the-rich-tea.mp4` is a 16-second vertical Reel (1080 × 1920, 30fps, with sound).
+Reggie, a nervous Rich Tea, sets out to prove Rich Teas *can* handle a dunk. He leaps into
+a cup of tea, stays in one second too long, and climbs out missing his bottom half. "…I'm
+fine. Totally fine."
+
+Post it as a Reel and use `reggie/cover.png` as the cover (Edit cover → Add from camera roll),
+so it sits nicely on the grid. The soundtrack is original, so there's no music licensing to
+worry about. You can also swap in a trending sound in the Reels editor.
+
+```
+Meet Reggie. Reggie is a Rich Tea. Reggie has something to prove 🫖
+
+Rich Teas have a dunk window of about 2 seconds. Reggie went for 3.
+
+He's fine. Totally fine. 🙃
+
+How long do you dunk yours? 👇
+
+#RichTea #DunkTest #BritishBiscuits #TeaAndBiscuits #Biscuits #TeaTime #BritishHumour #BiscuitTin
+```
+
+To change the animation, edit `reggie/reggie.html`: open it in a browser and it plays on a
+loop. `reggie/soundtrack.py` synthesises the sound effects and tune, timed to the same
+seconds as the animation.
