@@ -126,6 +126,10 @@ How long do you dunk yours? 👇
 #RichTea #DunkTest #BritishBiscuits #TeaAndBiscuits #Biscuits #TeaTime #BritishHumour #BiscuitTin
 ```
 
+All words sit inside Instagram's safe area: below the header, above the caption and
+buttons, left of the like/comment/share column, and inside the 4:5 crop the feed uses. Keep
+new text between 320px and 1500px from the top, and left of 940px, so nothing gets hidden.
+
 To change the animation, edit `reggie/reggie.html`: open it in a browser and it plays on a
 loop. `reggie/soundtrack.py` synthesises the sound effects and tune, timed to the same
 seconds as the animation.
