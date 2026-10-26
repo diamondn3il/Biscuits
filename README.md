@@ -10,3 +10,7 @@ It's a static site with no build step. Open `index.html` in a browser, or serve 
 - `styles.css`: styles, with light and dark themes
 
 To add a biscuit, add an entry to `biscuits.js`. It joins the search and the Biscuit of the Day rotation automatically.
+
+## Logo
+
+The logo, favicons, app icons and social media images live in `brand/`. See `brand/README.md` for which file to use where.
