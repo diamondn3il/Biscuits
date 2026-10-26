@@ -1,4 +1,4 @@
-/* The Biscuit Barrel — biscuit illustrations.
+/* The Biscuit Tin — biscuit illustrations.
    BiscuitArt.svg(biscuit) returns an inline SVG of the biscuit sitting on a paper doily.
    Everything is drawn in a 200 × 200 box centred on (100, 100). Random details (crumbs,
    currants, cracks) come from a generator seeded by the biscuit id, so each biscuit always

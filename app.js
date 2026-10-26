@@ -1,4 +1,4 @@
-/* The Biscuit Barrel — search, Biscuit of the Day, dunk test and the detail view. */
+/* The Biscuit Tin — search, Biscuit of the Day, dunk test and the detail view. */
 (function () {
   const B = window.BISCUITS;
   const CATS = window.BISCUIT_CATEGORIES;

@@ -1,4 +1,4 @@
-/* The Biscuit Barrel — the tin itself.
+/* The Biscuit Tin — the tin itself.
    Each entry: facts, history, a home-kitchen recipe and an `art` spec that art.js turns into an illustration.
    Oven temperatures are { c, fan, gas }; null means no baking required. */
 window.BISCUITS = [

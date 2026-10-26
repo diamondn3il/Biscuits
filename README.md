@@ -1,4 +1,4 @@
-# The Biscuit Barrel
+# The Biscuit Tin
 
 A whimsical field guide to British biscuits: 26 biscuits with illustrations, descriptions, history, a home-baking recipe, dunkability ratings and a Biscuit of the Day.
 
