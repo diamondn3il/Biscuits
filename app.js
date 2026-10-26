@@ -502,7 +502,7 @@
   // Split the masthead title into letters so they can drop in one by one.
   function dropInTitle() {
     const h1 = $(".title");
-    h1.setAttribute("aria-label", h1.textContent.replace(/\s+/g, " ").trim());
+    if (!h1.hasAttribute("aria-label")) h1.setAttribute("aria-label", h1.textContent.replace(/\s+/g, " ").trim());
     let i = 0;
     const walk = (node) => {
       for (const child of [...node.childNodes]) {
@@ -524,7 +524,7 @@
             frag.appendChild(word);
           }
           child.replaceWith(frag);
-        } else {
+        } else if (!child.matches(".title-tin")) {
           walk(child);
         }
       }

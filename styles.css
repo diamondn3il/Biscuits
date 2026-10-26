@@ -190,7 +190,7 @@ button, input, select { font: inherit; color: inherit; }
   box-shadow: var(--clay);
   display: grid;
   gap: 14px;
-  max-width: 760px;
+  max-width: 820px;
   rotate: -1.2deg;
 }
 .title-card::after {
@@ -213,11 +213,22 @@ button, input, select { font: inherit; color: inherit; }
   color: var(--ink);
   text-shadow: 0 5px 0 var(--surface-2);
 }
-.title > span:not(.word) {
-  color: var(--jam);
+/* the tin itself stands in for the word "Tin", kept on the same line as "Biscuit" */
+.title-end { white-space: nowrap; }
+.title-tin {
   display: inline-block;
-  transform: rotate(-3deg);
-  text-shadow: 0 5px 0 var(--edge);
+  width: 1.6em;
+  margin: -0.45em 0 -0.3em -0.1em;
+  vertical-align: -0.38em;
+  rotate: -5deg;
+}
+.title-tin svg { display: block; width: 100%; height: auto; overflow: visible; }
+.title-tin .lid { transform-origin: 420px 252px; transform-box: view-box; animation: lid-peek 6s ease-in-out 2.2s infinite; }
+@keyframes lid-peek {
+  0%, 78%, 100% { transform: rotate(0); }
+  84% { transform: rotate(-12deg); }
+  90% { transform: rotate(3deg); }
+  95% { transform: rotate(-2deg); }
 }
 .lede { font-size: var(--step-1); max-width: 56ch; line-height: 1.5; }
 .quick { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
@@ -768,6 +779,8 @@ dialog.detail[open] { animation: pop 0.35s var(--spring); }
   animation: drop-in 0.75s cubic-bezier(.3, 1.2, .5, 1) both;
   animation-delay: calc(var(--i) * 45ms + 250ms);
 }
+.title-tin { animation: drop-in 0.9s cubic-bezier(.3, 1.2, .5, 1) both 0.75s; }
+.title-tin:hover .lid { animation: lid-peek 1.2s ease-in-out; animation-delay: -0.95s; }
 .title-card .lede { animation: rise 0.6s ease both 0.75s; }
 .title-card .quick { animation: rise 0.6s ease both 0.9s; }
 .today-card { animation: rise 0.7s cubic-bezier(.2, .8, .3, 1) both 0.35s; }
