@@ -216,11 +216,13 @@ button, input, select { font: inherit; color: inherit; }
 /* the tin itself stands in for the word "Tin", kept on the same line as "Biscuit" */
 .title-end { white-space: nowrap; }
 .title-tin {
+  /* The artwork spans y 85-452 of its 512 box. At 1.02em wide that is about the cap height,
+     and the bottom margin pulls the drum's base onto the text baseline. */
+  --w: 1.02em;
   display: inline-block;
-  width: 1.6em;
-  margin: -0.45em 0 -0.3em -0.1em;
-  vertical-align: -0.38em;
-  rotate: -5deg;
+  width: var(--w);
+  margin: calc(var(--w) * -0.166) 0 calc(var(--w) * -0.117) 0.04em;
+  vertical-align: baseline;
 }
 .title-tin svg { display: block; width: 100%; height: auto; overflow: visible; }
 .title-tin .lid { transform-origin: 420px 252px; transform-box: view-box; animation: lid-peek 6s ease-in-out 2.2s infinite; }
