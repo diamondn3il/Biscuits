@@ -64,10 +64,10 @@
     --w: 1.02em; width: var(--w); vertical-align: baseline;
     margin: calc(var(--w) * -0.166) 0 calc(var(--w) * -0.117) 0.04em;
   }
-  #welcome p { font-size: 46px; line-height: 1.4; font-weight: 700; margin: 0; color: var(--glow); }
-  #welcome .pills { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 6px; }
+  #welcome p { font-size: 42px; line-height: 1.4; font-weight: 700; margin: 0; color: var(--glow); }
+  #welcome .pills { display: flex; gap: 14px; flex-wrap: nowrap; margin-top: 6px; }
   #welcome .pill {
-    font-family: Fredoka; font-weight: 600; font-size: 40px; padding: 16px 38px; border-radius: 999px;
+    font-family: Fredoka; font-weight: 600; font-size: 32px; padding: 12px 24px; border-radius: 999px; white-space: nowrap;
     border: 6px solid var(--night); box-shadow: 0 8px 0 var(--night); background: var(--card-2); color: var(--glow);
   }
   #welcome .pill.go { background: var(--pinky); color: #2a0f1a; }
@@ -127,8 +127,9 @@
   <div class="card">
     <p class="eyebrow">A field guide to British biscuits</p>
     <h1>The Biscuit <img src="../logo-mark.svg" alt="Tin"></h1>
-    <p>Britain's best-loved biscuits. Their history, a recipe to bake at home, and how long they survive a dunk.</p>
-    <div class="pills"><span class="pill go">Link in bio</span><span class="pill">Put the kettle on</span></div>
+    <!-- copy and buttons match the website's hero -->
+    <p>An entirely devoted guide to Britain's finest biscuits: where they came from, how to bake them at home, and how long they last in a mug of builder's tea.</p>
+    <div class="pills"><span class="pill go">Today's biscuit</span><span class="pill">Search the tin</span><span class="pill">Surprise me</span></div>
   </div>
 </section>
 
