@@ -1,0 +1,3 @@
+# rendering scratch space and the local Playwright link used by render.mjs
+brand/instagram/characters/.render-tmp/
+brand/instagram/characters/node_modules
