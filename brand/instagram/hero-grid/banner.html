@@ -56,12 +56,20 @@
   .table { left: -34px; top: 2470px; width: 3104px; height: 230px;
     background-color: #fff; background-image: linear-gradient(90deg, rgba(217,47,99,.45) 50%, transparent 50%), linear-gradient(rgba(217,47,99,.45) 50%, transparent 50%);
     background-size: 90px 90px; border-top: 16px solid var(--night); }
+  .square #canvas { width: 2700px; height: 2160px; }
+  .square #art { left: 135px; transform: scale(.8); transform-origin: 0 0; }
+  .square .drip, .square .table { left: -170px; width: 3376px; }
   .chara { filter: drop-shadow(0 14px 0 rgba(0,0,0,.25)); }
   .floaty { width: 220px; filter: drop-shadow(0 12px 0 rgba(0,0,0,.25)); }
   .floaty .biscuit-svg { width: 100%; height: auto; display: block; overflow: visible; }
 </style>
 </head>
 <body>
+<script>
+  // banner.html?format=square lays the same banner out for square posts: grid space is
+  // 3 x 810 by 2 x 1080 (exactly 0.8 of the portrait layout), with 135px of bleed down each side.
+  if (new URLSearchParams(location.search).get("format") === "square") document.documentElement.classList.add("square");
+</script>
 <div id="canvas">
   <div id="art">
     <div class="drip"></div>
