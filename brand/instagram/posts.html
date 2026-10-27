@@ -32,14 +32,45 @@
   .foot img { width: 96px; }
   .handle { font-family: Nunito; font-weight: 800; font-size: 34px; color: var(--muted); }
 
-  /* 1. Welcome */
-  #welcome { background: #fff0f4; align-items: center; text-align: center; }
-  #welcome .tin { width: 540px; margin-top: 70px; }
-  #welcome h1 { white-space: nowrap; font-size: 124px; text-shadow: 0 9px 0 #ffc9d9; margin-top: 10px; }
-  #welcome h1 span { color: var(--jam); text-shadow: 0 9px 0 var(--ink); display: inline-block; rotate: -4deg; }
-  #welcome p { font-size: 46px; line-height: 1.3; font-weight: 700; max-width: 820px; margin: 44px 0 0; }
-  #welcome .sticker { top: 80px; right: 80px; rotate: 8deg; }
-  #welcome .foot { width: 100%; }
+  /* 1. Welcome, in the website's dark theme: the hero's deep plum, purple clay card and pink drips */
+  #welcome {
+    --plum: #23162b; --card: #33223d; --card-2: #3f2a4a; --night: #120a16; --pinky: #ff6f98; --glow: #fff1f5; --soft: #d6bfcc;
+    background: var(--plum); color: var(--glow); align-items: center; justify-content: center; padding: 0 70px;
+  }
+  #welcome.sprinkles::before { opacity: .38; }
+  #welcome .drip {
+    position: absolute; inset: 0 0 auto; height: 160px; background: var(--pinky);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='64' viewBox='0 0 160 64'%3E%3Cpath d='M0 0h160v22c-8 0-10 6-10 14s-4 14-10 14-10-6-10-14 0-14-12-14-12 8-12 20-4 22-12 22-12-10-12-22-2-20-14-20-12 4-14 12-6 10-12 10-10-4-12-12-6-10-14-10-10 6-10 14-4 12-10 12S8 30 0 22z'/%3E%3C/svg%3E") repeat-x top / 400px 160px;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='64' viewBox='0 0 160 64'%3E%3Cpath d='M0 0h160v22c-8 0-10 6-10 14s-4 14-10 14-10-6-10-14 0-14-12-14-12 8-12 20-4 22-12 22-12-10-12-22-2-20-14-20-12 4-14 12-6 10-12 10-10-4-12-12-6-10-14-10-10 6-10 14-4 12-10 12S8 30 0 22z'/%3E%3C/svg%3E") repeat-x top / 400px 160px;
+  }
+  #welcome .floaters { position: absolute; inset: 0; z-index: 1; }
+  #welcome .floaters span { position: absolute; width: 190px; }
+  #welcome .floaters .biscuit-svg { width: 100%; height: auto; display: block; overflow: visible; filter: drop-shadow(0 10px 0 rgba(0,0,0,.25)); }
+  #welcome .card {
+    position: relative; z-index: 2; width: 100%; box-sizing: border-box;
+    background: var(--card); border: 7px solid var(--night); border-radius: 72px; padding: 70px 64px 66px;
+    box-shadow: 0 16px 0 var(--night), inset -12px -16px 28px rgba(0,0,0,.18), inset 12px 12px 24px rgba(255,255,255,.06);
+    display: flex; flex-direction: column; gap: 30px; rotate: -1.6deg;
+  }
+  #welcome .card::after {
+    content: "Freshly baked"; position: absolute; top: -40px; right: 56px; rotate: 6deg;
+    background: var(--custard); color: var(--ink); border: 6px solid var(--night); border-radius: 999px; padding: 8px 30px;
+    font-family: Fredoka; font-weight: 600; font-size: 40px; box-shadow: 0 7px 0 var(--night);
+  }
+  #welcome .eyebrow { font-weight: 800; font-size: 30px; letter-spacing: .13em; text-transform: uppercase; color: var(--soft); margin: 0; }
+  #welcome h1 { font-size: 136px; line-height: .98; color: var(--glow); text-shadow: 0 9px 0 var(--card-2); white-space: nowrap; }
+  #welcome h1 img {
+    /* the tin stands in for the word "Tin": cap height, with the drum's base on the baseline */
+    --w: 1.02em; width: var(--w); vertical-align: baseline;
+    margin: calc(var(--w) * -0.166) 0 calc(var(--w) * -0.117) 0.04em;
+  }
+  #welcome p { font-size: 46px; line-height: 1.4; font-weight: 700; margin: 0; color: var(--glow); }
+  #welcome .pills { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 6px; }
+  #welcome .pill {
+    font-family: Fredoka; font-weight: 600; font-size: 40px; padding: 16px 38px; border-radius: 999px;
+    border: 6px solid var(--night); box-shadow: 0 8px 0 var(--night); background: var(--card-2); color: var(--glow);
+  }
+  #welcome .pill.go { background: var(--pinky); color: #2a0f1a; }
 
   /* 2. Biscuit of the Day */
   #daily { background: #ffe7a3; }
@@ -73,11 +104,14 @@
 <body>
 
 <section class="post sprinkles" id="welcome">
-  <span class="sticker">New!</span>
-  <img class="tin" src="../logo-mark.svg" alt="">
-  <h1>The Biscuit <span>Tin</span></h1>
-  <p>26 British biscuits. Their history, a recipe to bake at home, and how long they survive a dunk.</p>
-  <div class="foot"><span>Put the kettle on</span><span class="handle">Link in bio</span></div>
+  <div class="drip"></div>
+  <div class="floaters" id="welcome-floaters"></div>
+  <div class="card">
+    <p class="eyebrow">A field guide to British biscuits</p>
+    <h1>The Biscuit <img src="../logo-mark.svg" alt="Tin"></h1>
+    <p>26 British biscuits. Their history, a recipe to bake at home, and how long they survive a dunk.</p>
+    <div class="pills"><span class="pill go">Link in bio</span><span class="pill">Put the kettle on</span></div>
+  </div>
 </section>
 
 <section class="post" id="daily">
@@ -103,6 +137,10 @@
 <script src="../../art.js"></script>
 <script>
   const by = (id) => window.BISCUITS.find((b) => b.id === id);
+  const FLOAT = [["jammie-dodger", 70, 190, -14], ["party-ring", 850, 120, 16], ["custard-cream", 40, 1030, 10],
+                 ["jaffa-cake", 830, 1050, -12], ["bourbon", 610, 1150, 8], ["iced-gems", 300, 1110, -6]];
+  document.getElementById("welcome-floaters").innerHTML = FLOAT.map(([id, x, y, r]) =>
+    `<span style="left:${x}px;top:${y}px;rotate:${r}deg">${BiscuitArt.svg(by(id), { noDoily: true, decorative: true })}</span>`).join("");
   document.getElementById("daily-art").innerHTML = BiscuitArt.svg(by("custard-cream"), { decorative: true });
   document.getElementById("debate-art").innerHTML = BiscuitArt.svg(by("jaffa-cake"), { noDoily: true, decorative: true });
   const CUP = '<svg viewBox="0 0 24 24"><path d="M3 8h13v5a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6z" fill="currentColor"/><path d="M16 10h1.5a3 3 0 0 1 0 6H15" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
