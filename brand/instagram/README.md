@@ -78,7 +78,7 @@ The full history and a recipe to bake your own are on the site. Link in bio.
 ```
 Welcome to The Biscuit Tin 👋☕
 
-A whimsical field guide to 26 of Britain's finest biscuits, from the humble Rich Tea to the legally-a-cake Jaffa Cake.
+A whimsical field guide to Britain's finest biscuits, from the humble Rich Tea to the legally-a-cake Jaffa Cake.
 
 Every biscuit gets its history, a recipe to bake it at home, and an honest verdict on how long it survives a dunk.
 
@@ -91,7 +91,7 @@ Link in bio 👆
 
 ## 4. Ideas for what to post next
 
-- **Biscuit of the Day:** one of the site's 26 biscuits each day, using the custard cream post as the template.
+- **Biscuit of the Day:** one of the site's biscuits each day, using the custard cream post as the template.
 - **The great debates:** chocolate digestive side up or down, "nice" or "neece", the double-dunk.
 - **Dunk tests:** a short Reel of each biscuit going into a mug, with a timer.
 - **Bake-alongs:** Reels of the site's recipes, starting with the easy ones (shortbread, ginger nuts, Hobnobs).

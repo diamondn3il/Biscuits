@@ -1,6 +1,6 @@
 # The Biscuit Tin
 
-A whimsical field guide to British biscuits: 26 biscuits with illustrations, descriptions, history, a home-baking recipe, dunkability ratings and a Biscuit of the Day.
+A whimsical field guide to British biscuits. Each biscuit has an illustration, a description, its history, a home-baking recipe and a dunkability rating, and one is picked as the Biscuit of the Day.
 
 It's a static site with no build step. Open `index.html` in a browser, or serve the folder with any static host (e.g. `python3 -m http.server`).
 

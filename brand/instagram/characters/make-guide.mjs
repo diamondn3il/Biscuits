@@ -50,7 +50,7 @@ order.forEach((c, i) => {
 md += `\n## Captions\n`;
 order.forEach((c, i) => {
   const tags = [...c.tags, ...common].map((t) => "#" + t).join(" ");
-  md += `\n### ${i + 2}. ${c.name} the ${B[c.id].name}\n\n\`videos/${c.id}.mp4\` · \`covers/${c.id}.png\`\n\n\`\`\`\n${c.caption}\n\nAll 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪\n\n${tags}\n\`\`\`\n`;
+  md += `\n### ${i + 2}. ${c.name} the ${B[c.id].name}\n\n\`videos/${c.id}.mp4\` · \`covers/${c.id}.png\`\n\n\`\`\`\n${c.caption}\n\nEvery biscuit, with its history and a recipe, is on the site. Link in bio 🍪\n\n${tags}\n\`\`\`\n`;
 });
 md += `
 ## Changing or adding episodes

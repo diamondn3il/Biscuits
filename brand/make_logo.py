@@ -180,7 +180,7 @@ TX = 500
 size = (1200 - TX - 56) / width(FREDOKA, "The Biscuit Tin", 1)
 wm, wm_w = wordmark(0, 0, size)
 og_tag_d, _ = text_path(NUNITO, tag, 38, TX, 378)
-sub = "History, recipes and dunk tests for 26 biscuits"
+sub = "History, recipes and dunk tests for every biscuit"
 sub_d, _ = text_path(NUNITO, sub, 27, TX, 430)
 og = (
     f'<rect width="1200" height="630" fill="{PINK_BG}"/>'

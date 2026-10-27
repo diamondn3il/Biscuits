@@ -54,7 +54,7 @@ Meet Coco. Coco is a Chocolate Digestive, and Coco has just had some news 😳
 
 Biscuit makers coat the underside, so technically the chocolate is on the bottom. Chocolate side up or down? 👇
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #ChocolateDigestive #ChocolateBiscuits #GreatDebate #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -68,7 +68,7 @@ Meet Hamish. Hamish is a Shortbread, and Hamish has three ingredients and centur
 
 The classic ratio is 1 sugar, 2 butter, 3 flour. Easy to remember, even after a dram.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #Shortbread #ScottishShortbread #Hogmanay #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -82,7 +82,7 @@ Meet Cassandra. Cassandra is a Custard Cream, and Cassandra has a secret 🤫
 
 There's no actual custard inside. The flavour comes from custard powder and vanilla.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #CustardCream #VictorianBiscuits #BiscuitFacts #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -96,7 +96,7 @@ Meet Doug. Doug is a Digestive. Doug does not panic in a crisis, or a cuppa ☕
 
 He's been the nation's go-to dunker since 1892, and he knows it.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #Digestive #McVities #DunkTest #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -110,7 +110,7 @@ Meet Bertie. Bertie is a Bourbon, and Bertie would like you to bow 👑
 
 He's named after the French royal House of Bourbon. He has nothing whatsoever to do with whiskey.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #Bourbon #BourbonBiscuit #BiscuitFacts #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -124,7 +124,7 @@ Meet Penny. Penny is a Party Ring. Penny has never not been at a party 🎉
 
 No two Party Rings are quite alike: the feathered icing is dragged through by hand, wet.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #PartyRing #PartyRings #Nostalgia #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -138,7 +138,7 @@ Meet Jemima. Jemima is a Jammie Dodger, and Jemima has saved the world 🚀
 
 In the 2010 Doctor Who episode 'Victory of the Daleks', the Doctor bluffed an alien fleet with a Jammie Dodger.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #JammieDodger #DoctorWho #WelshBiscuits #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -152,7 +152,7 @@ Meet Hank. Hank is a Hobnob. Hank's oats are basically scaffolding 💪
 
 Eight seconds in a mug of builder's tea and not a single crumb lost.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #Hobnob #Hobnobs #DunkTest #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -166,7 +166,7 @@ Meet Gari. Gari is a Garibaldi, named after the Italian general Giuseppe Garibal
 
 Generations of schoolchildren have called him the 'squashed fly biscuit'. They're currants. He'd like that noted.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #Garibaldi #SquashedFly #BiscuitFacts #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -180,7 +180,7 @@ Meet Vivienne. Vivienne is a Viennese Whirl, and Vivienne has never been to Vien
 
 The name nods to Viennese baking, but the jam-and-buttercream sandwich is pure British teatime.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #VienneseWhirl #AfternoonTea #Baking #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -194,7 +194,7 @@ Meet Jasper. Jasper is a Jaffa Cake, and Jasper is legally a cake ⚖️
 
 In 1991 a VAT tribunal agreed: cakes go hard when stale, biscuits go soft, and Jaffa Cakes go hard. Case closed?
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #JaffaCake #CakeOrBiscuit #McVities #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -208,7 +208,7 @@ Meet Gus. Gus is a Ginger Nut. Gus has never once lost to a cup of tea 🔥
 
 Ginger nuts hold out longer than almost anything in the tin. Ten seconds and he's barely warmed up.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #GingerNut #GingerBiscuits #DunkTest #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -222,7 +222,7 @@ Meet Nigel. Nigel is a Nice biscuit. Or a Neece biscuit. Nigel doesn't mind, but
 
 How do you say it? 👇
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #NiceBiscuit #Pronunciation #GreatDebate #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -236,7 +236,7 @@ Meet Fiona. Fiona is a Chocolate Finger, and Fiona is part of a big family 🍫
 
 Line them up round a sponge, tie on a ribbon, and you've got the birthday 'log fence' cake.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #ChocolateFingers #BirthdayCake #Nostalgia #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -250,7 +250,7 @@ Meet Daisy. Daisy is a Malted Milk, and Daisy has cows 🐄
 
 Standing up, lying down, or quietly judging your dunking: what are the cows on a Malted Milk doing?
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #MaltedMilk #Cows #Nostalgia #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -264,7 +264,7 @@ Meet Wendy. Wendy is a Pink Wafer, and Wendy should not have done that 🫣
 
 Wafers are mostly air, so they dissolve almost instantly in tea. Never dunk a wafer.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #PinkWafer #Wafers #DunkTest #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -278,7 +278,7 @@ Meet Felix. Felix is a Fig Roll, and Felix knows how the figs get into the fig r
 
 The filling and pastry are pushed out together through one nozzle, like toothpaste with a jacket on.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #FigRoll #FigRolls #BiscuitFacts #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -292,7 +292,7 @@ Meet Kit. Kit is a Cornish Fairing, and Kit loves a fair 🎡
 
 'Fairings' were sweet treats bought at country fairs. Furniss of Truro began baking these in 1886.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #CornishFairing #Cornwall #GingerBiscuits #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -306,7 +306,7 @@ Meet Percy. Percy is a Penguin, and Percy has a joke for every occasion 🐧
 
 The jokes on Penguin wrappers have been a lunchbox tradition for generations. Got a better one? 👇
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #PenguinBiscuit #LunchboxJokes #Nostalgia #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -320,7 +320,7 @@ Meet Tam. Tam is a Teacake from Uddingston, and Tam has one rule 🚫☕
 
 Marshmallow and tea do not mix. Some things are better unwrapped and eaten whole.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #Teacake #TunnocksTeacake #ScottishBiscuits #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -334,7 +334,7 @@ Meet Oliver. Oliver is a Bath Oliver, and Oliver is a little bit vain 🧐
 
 Dr William Oliver created the biscuit for his patients around 1750, and his portrait is stamped on every one.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #BathOliver #Georgian #CheeseAndBiscuits #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -348,7 +348,7 @@ Meet Gemma. Gemma is an Iced Gem, and Gemma has a lot of sisters 💎
 
 Be honest: do you bite the icing off first? 👇
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #IcedGems #PartyFood #Nostalgia #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -362,7 +362,7 @@ Meet Emmy. Emmy is an Empire Biscuit, and Emmy has had a name change 🍒
 
 Once the Linzer or German biscuit, it was patriotically renamed during the First World War.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #EmpireBiscuit #ScottishBakery #BiscuitHistory #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -376,7 +376,7 @@ Meet Wyatt. Wyatt is a Wagon Wheel, and Wyatt has NOT got smaller 🤠
 
 People have insisted for decades that Wagon Wheels have shrunk. The makers say we just got bigger.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #WagonWheel #Nostalgia #GreatDebate #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
@@ -390,7 +390,7 @@ Meet Shelley. Shelley is a Shrewsbury Biscuit, and Shelley has been on the stage
 
 William Congreve wrote 'as short as a Shrewsbury cake' in his 1700 play The Way of the World.
 
-All 26 biscuits, with their history and a recipe, are on the site. Link in bio 🍪
+Every biscuit, with its history and a recipe, is on the site. Link in bio 🍪
 
 #ShrewsburyBiscuit #Shropshire #BiscuitHistory #BritishBiscuits #Biscuits #TeaTime #TeaAndBiscuits #BiscuitTin
 ```
