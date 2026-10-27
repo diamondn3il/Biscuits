@@ -64,6 +64,12 @@
     --w: 1.02em; width: var(--w); vertical-align: baseline;
     margin: calc(var(--w) * -0.166) 0 calc(var(--w) * -0.117) 0.04em;
   }
+  #welcome .pills { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 6px; }
+  #welcome .pill {
+    font-family: Fredoka; font-weight: 600; font-size: 40px; padding: 16px 38px; border-radius: 999px;
+    border: 6px solid var(--night); box-shadow: 0 8px 0 var(--night); background: var(--card-2); color: var(--glow);
+  }
+  #welcome .pill.go { background: var(--pinky); color: #2a0f1a; }
   #welcome p { font-size: 42px; line-height: 1.4; font-weight: 700; margin: 0; color: var(--glow); }
 
   /* 2 and 3 share the welcome post's dark theme */
@@ -121,8 +127,9 @@
   <div class="card">
     <p class="eyebrow">A field guide to British biscuits</p>
     <h1>The Biscuit <img src="../logo-mark.svg" alt="Tin"></h1>
-    <!-- copy matches the website's hero; no buttons, since nothing on an Instagram post can be tapped -->
+    <!-- copy matches the website's hero; the pills point people to the link in the bio -->
     <p>An entirely devoted guide to Britain's finest biscuits: where they came from, how to bake them at home, and how long they last in a mug of builder's tea.</p>
+    <div class="pills"><span class="pill go">Link in bio</span><span class="pill">Put the kettle on</span></div>
   </div>
 </section>
 
