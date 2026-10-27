@@ -54,12 +54,12 @@ for (const id of ids) {
   ff.stdin.end();
   await new Promise((r) => ff.on("close", r));
 
-  // soundtrack from this episode's cues, then mux and grab a cover
+  // soundtrack from this episode's cues, levelled to a standard loudness, then mux and grab a cover
   const cues = path.join(TMP, id + ".json"), wav = path.join(TMP, id + ".wav");
   writeFileSync(cues, JSON.stringify({ index, events }));
   run(PYTHON, [path.join(HERE, "soundtrack.py"), cues, wav]);
   const out = path.join(HERE, "videos", id + ".mp4");
-  run(FFMPEG, ["-y", "-loglevel", "error", "-i", silent, "-i", wav, "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-shortest", "-movflags", "+faststart", out]);
+  run(FFMPEG, ["-y", "-loglevel", "error", "-i", silent, "-i", wav, "-c:v", "copy", "-af", "loudnorm=I=-16:TP=-1.5:LRA=11,alimiter=limit=0.84:level=false", "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-t", String(duration), "-movflags", "+faststart", out]);
   run(FFMPEG, ["-y", "-loglevel", "error", "-ss", "2.2", "-i", out, "-frames:v", "1", path.join(HERE, "covers", id + ".png")]);
   console.log(`${id}: done in ${((Date.now() - started) / 1000).toFixed(0)}s`);
 }

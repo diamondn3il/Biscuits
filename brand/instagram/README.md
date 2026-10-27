@@ -133,3 +133,9 @@ new text between 320px and 1500px from the top, and left of 940px, so nothing ge
 To change the animation, edit `reggie/reggie.html`: open it in a browser and it plays on a
 loop. `reggie/soundtrack.py` synthesises the sound effects and tune, timed to the same
 seconds as the animation.
+
+## The whole cast
+
+`characters/` has a character and a Reel for every other biscuit on the site: 25 more, from
+Doug the Digestive to Wyatt the Wagon Wheel. `characters/README.md` has a posting order (one a day
+for nearly a month, starting with Reggie) and a caption for each.
