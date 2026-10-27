@@ -22,7 +22,7 @@ type them in:
 
 **Name:** The Biscuit Tin
 
-**Profile picture:** `profile-picture.png`. Instagram crops it to a circle; the tin sits in
+**Profile picture:** `profile-picture.png`, or `profile-picture-dark.png` to match the dark posts. Instagram crops it to a circle; the tin sits in
 the middle, so only sprinkles are lost at the corners.
 
 **Bio** (130 of 150 characters):

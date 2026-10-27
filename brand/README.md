@@ -12,6 +12,7 @@ claymation style as the site.
 | `logo-horizontal.svg`, `logo-horizontal.png` | The tin beside the name, transparent background. Website headers, email signatures, banners. |
 | `social-square.svg`, `social-square.png` | 1080 × 1080 post with the tin, name and tagline. Instagram and Facebook posts. |
 | `social-card.svg`, `social-card.png` | 1200 × 630 link preview. Used as the site's `og:image` for shared links. |
+| `logo-badge-dark.svg`, `instagram/profile-picture-dark.png` | The tin on a deep plum tile with sprinkles, a pink drip and a cream sticker outline, matching the site's dark theme. A dark profile picture. |
 | `favicon-16.png`, `favicon-32.png`, `favicon-48.png` | Browser tab icons. `../favicon.svg` and `../favicon.ico` are the ones the site links to. |
 
 Colours: chocolate `#3b1f14`, raspberry `#d92f63`, custard `#ffc94a`, cream `#fff6e0`,
@@ -27,3 +28,14 @@ fonts installed.
     python make_logo.py Fredoka-Bold.woff2 Nunito-Bold.woff2 brand/
 
 Render the PNGs from the SVGs with any SVG renderer at the sizes in the table.
+
+## Tin design options
+
+`tin-options/` has four alternative tin designs beside the current one, all on the same tin
+shape: **Royal Blue** (gold scrolls and a crown), **Tartan Shortbread** (red tartan with a
+thistle), **Mint Candy Stripe** and **Midnight Sprinkles** (plum and pink). Each comes as a
+transparent mark (`<name>-mark.svg`), a dark badge (`<name>-badge-dark.svg`) and a 1080px dark
+profile picture (`<name>-profile-dark.png`). `options.png` compares them all.
+
+The designs live in `TIN_STYLES` in `make_logo.py`. To switch the brand to one, set `CLASSIC` to
+that style and rerun the script.
