@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>The Biscuit Tin: Instagram hero banner</title>
+<!-- One banner across two rows of the Instagram grid. Positions are in "grid space" (3 x 1012
+     wide, 2 x 1350 tall); #art is offset by the 34px side bleed so make.mjs can cut the posts.
+     Keep important things away from the joins at x = 1012 and 2024, and y = 1350. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@700;800&display=swap">
+<style>
+  :root {
+    --plum: #23162b; --card: #33223d; --card-2: #3f2a4a; --night: #120a16; --pinky: #ff6f98; --glow: #fff1f5; --soft: #d6bfcc;
+    --custard: #ffc94a; --ink: #3b1f14; --doily: #fff; --doily-hole: rgba(59,31,20,.14);
+  }
+  html, body { margin: 0; background: var(--plum); }
+  #canvas { position: relative; width: 3104px; height: 2700px; overflow: hidden; background: var(--plum); color: var(--glow); font-family: Nunito, sans-serif; }
+  #canvas::before {
+    content: ""; position: absolute; inset: 0; opacity: .38;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cg stroke-linecap='round' stroke-width='9'%3E%3Cpath d='M30 44l18-9' stroke='%23ff7aa2'/%3E%3Cpath d='M100 26l6 18' stroke='%23ffc94a'/%3E%3Cpath d='M188 58l18 6' stroke='%239ad7f5'/%3E%3Cpath d='M230 130l-6 18' stroke='%238ee0b8'/%3E%3Cpath d='M144 116l14-12' stroke='%23c9a7ff'/%3E%3Cpath d='M58 144l-14 12' stroke='%23ffc94a'/%3E%3Cpath d='M116 202l18 3' stroke='%23ff7aa2'/%3E%3Cpath d='M202 216l6-18' stroke='%23c9a7ff'/%3E%3Cpath d='M22 230l14 9' stroke='%239ad7f5'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 260px 260px;
+  }
+  #art { position: absolute; left: 34px; top: 0; width: 3036px; height: 2700px; }
+  #art > * { position: absolute; }
+  .drip {
+    left: -34px; top: 0; width: 3104px; height: 230px; background: var(--pinky);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='64' viewBox='0 0 160 64'%3E%3Cpath d='M0 0h160v22c-8 0-10 6-10 14s-4 14-10 14-10-6-10-14 0-14-12-14-12 8-12 20-4 22-12 22-12-10-12-22-2-20-14-20-12 4-14 12-6 10-12 10-10-4-12-12-6-10-14-10-10 6-10 14-4 12-10 12S8 30 0 22z'/%3E%3C/svg%3E") repeat-x top / 575px 230px;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='64' viewBox='0 0 160 64'%3E%3Cpath d='M0 0h160v22c-8 0-10 6-10 14s-4 14-10 14-10-6-10-14 0-14-12-14-12 8-12 20-4 22-12 22-12-10-12-22-2-20-14-20-12 4-14 12-6 10-12 10-10-4-12-12-6-10-14-10-10 6-10 14-4 12-10 12S8 30 0 22z'/%3E%3C/svg%3E") repeat-x top / 575px 230px;
+  }
+  .eyebrow { left: 170px; top: 330px; font-weight: 800; font-size: 62px; letter-spacing: .14em; text-transform: uppercase; color: var(--soft); margin: 0; }
+  h1 {
+    left: 110px; top: 450px; margin: 0; font-family: Fredoka; font-weight: 700; font-size: 350px; line-height: 1; letter-spacing: -.01em;
+    color: var(--glow); text-shadow: 0 22px 0 var(--card-2); white-space: nowrap;
+  }
+  .tin { left: 2075px; top: 190px; width: 860px; rotate: -4deg; filter: drop-shadow(0 22px 0 rgba(0,0,0,.28)); }
+  .sticker {
+    left: 2420px; top: 250px; rotate: 9deg; white-space: nowrap; background: var(--custard); color: var(--ink); border: 9px solid var(--night); border-radius: 999px;
+    padding: 12px 38px; font-family: Fredoka; font-weight: 600; font-size: 54px; box-shadow: 0 10px 0 var(--night);
+  }
+  .lede { left: 150px; top: 960px; width: 1860px; margin: 0; font-weight: 700; font-size: 76px; white-space: nowrap; line-height: 1.22; color: var(--glow); }
+  .pills { left: 2090px; top: 960px; width: 880px; display: flex; flex-direction: column; align-items: center; gap: 34px; }
+  .pill { font-family: Fredoka; font-weight: 600; font-size: 64px; padding: 20px 56px; border-radius: 999px; border: 9px solid var(--night);
+          box-shadow: 0 12px 0 var(--night); background: var(--card-2); color: var(--glow); white-space: nowrap; }
+  .pill.go { background: var(--pinky); color: #2a0f1a; rotate: -3deg; }
+  .pill:not(.go) { rotate: 2deg; }
+
+  /* bottom row: the sentence carries on across three cards, one per post */
+  .card {
+    top: 1430px; width: 840px; height: 640px; box-sizing: border-box; padding: 60px 62px;
+    background: var(--card); border: 9px solid var(--night); border-radius: 76px;
+    box-shadow: 0 18px 0 var(--night), inset -14px -18px 30px rgba(0,0,0,.18), inset 14px 14px 26px rgba(255,255,255,.06);
+    display: flex; flex-direction: column; gap: 26px;
+  }
+  .card h2 { margin: 0; font-family: Fredoka; font-weight: 700; font-size: 84px; line-height: 1.02; color: var(--glow); text-shadow: 0 8px 0 var(--card-2); }
+  .card h2 em { font-style: normal; color: var(--pinky); text-shadow: 0 8px 0 var(--night); }
+  .card p { margin: 0; font-weight: 700; font-size: 44px; line-height: 1.35; color: var(--soft); }
+  .table { left: -34px; top: 2470px; width: 3104px; height: 230px;
+    background-color: #fff; background-image: linear-gradient(90deg, rgba(217,47,99,.45) 50%, transparent 50%), linear-gradient(rgba(217,47,99,.45) 50%, transparent 50%);
+    background-size: 90px 90px; border-top: 16px solid var(--night); }
+  .square #canvas { width: 2700px; height: 2160px; }
+  .square #art { left: 135px; transform: scale(.8); transform-origin: 0 0; }
+  .square .drip, .square .table { left: -170px; width: 3376px; }
+  .chara { filter: drop-shadow(0 14px 0 rgba(0,0,0,.25)); }
+  .floaty { width: 220px; filter: drop-shadow(0 12px 0 rgba(0,0,0,.25)); }
+  .floaty .biscuit-svg { width: 100%; height: auto; display: block; overflow: visible; }
+</style>
+</head>
+<body>
+<script>
+  // banner.html?format=square lays the same banner out for square posts: grid space is
+  // 3 x 810 by 2 x 1080 (exactly 0.8 of the portrait layout), with 135px of bleed down each side.
+  if (new URLSearchParams(location.search).get("format") === "square") document.documentElement.classList.add("square");
+</script>
+<div id="canvas">
+  <div id="art">
+    <div class="drip"></div>
+    <div class="floaty" style="left:1700px;top:200px;rotate:-14deg" data-b="jammie-dodger"></div>
+    <div class="floaty" style="left:1830px;top:1100px;width:170px;rotate:12deg" data-b="party-ring"></div>
+    <div class="floaty" style="left:2770px;top:1180px;width:180px;rotate:-10deg" data-b="custard-cream"></div>
+
+    <p class="eyebrow">A field guide to British biscuits</p>
+    <h1>The Biscuit</h1>
+    <img class="tin" src="../../logo-mark.svg" alt="Tin">
+    <div class="sticker">Freshly baked</div>
+    <p class="lede">An entirely devoted guide to Britain's finest biscuits:</p>
+    <div class="pills"><span class="pill go">Link in bio</span><span class="pill">Put the kettle on</span></div>
+
+    <div class="card" style="left:86px;rotate:-1.4deg"><h2><em>…where</em> they came from,</h2><p>The story behind every biscuit, from Georgian Bath to a stand-off with the Daleks.</p></div>
+    <div class="card" style="left:1098px;rotate:1deg"><h2><em>how</em> to bake them at home,</h2><p>A home-kitchen recipe for each one, in °C, fan and Gas Mark.</p></div>
+    <div class="card" style="left:2110px;rotate:-1deg"><h2><em>and how long</em> they last in a mug of builder's tea.</h2><p>Dunk ratings, dunk windows and the odd casualty.</p></div>
+
+    <div class="table"></div>
+    <img class="chara" src="parts/oliver.png" style="left:290px;top:2020px;height:470px" alt="">
+    <img class="chara" src="parts/hamish.png" style="left:1290px;top:1960px;height:530px" alt="">
+    <img class="chara" src="parts/reggie.png" style="left:2060px;top:2050px;height:440px" alt="">
+  </div>
+</div>
+<script src="../../../biscuits.js"></script>
+<script src="../../../art.js"></script>
+<script>
+  document.querySelectorAll("[data-b]").forEach((el) => {
+    el.innerHTML = BiscuitArt.svg(BISCUITS.find((b) => b.id === el.dataset.b), { noDoily: true, decorative: true });
+  });
+</script>
+</body>
+</html>

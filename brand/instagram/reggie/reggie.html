@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Reggie the Rich Tea</title>
+<!-- A 16-second, 1080 x 1920 Instagram Reel. render(t) draws the frame at t seconds, so the
+     video can be captured frame by frame; opening the page plays it in real time. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@700;800&display=swap">
+<style>
+  :root { --ink: #3b1f14; --jam: #d92f63; --custard: #ffc94a; --pink: #fff0f4; }
+  html, body { margin: 0; background: #222; }
+  #stage { width: 1080px; height: 1920px; position: relative; overflow: hidden; background: var(--pink); font-family: Nunito, sans-serif; color: var(--ink); }
+  #stage::before {
+    content: ""; position: absolute; inset: 0; opacity: .55;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cg stroke-linecap='round' stroke-width='9'%3E%3Cpath d='M30 44l18-9' stroke='%23ff7aa2'/%3E%3Cpath d='M100 26l6 18' stroke='%23ffc94a'/%3E%3Cpath d='M188 58l18 6' stroke='%239ad7f5'/%3E%3Cpath d='M230 130l-6 18' stroke='%238ee0b8'/%3E%3Cpath d='M144 116l14-12' stroke='%23c9a7ff'/%3E%3Cpath d='M58 144l-14 12' stroke='%23ffc94a'/%3E%3Cpath d='M116 202l18 3' stroke='%23ff7aa2'/%3E%3Cpath d='M202 216l6-18' stroke='%23c9a7ff'/%3E%3Cpath d='M22 230l14 9' stroke='%239ad7f5'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 260px 260px;
+  }
+  svg#scene { position: absolute; inset: 0; }
+  /* Instagram safe area: its header covers the top ~250px, the caption and buttons the bottom
+     ~420px and the right-hand ~140px, and the feed crops Reels to 4:5 (y 285-1635). All words sit
+     between y 320 and 1500, centred left of the button column. */
+  .layer { position: absolute; left: 0; top: 0; width: 1080px; padding: 0 140px 0 40px; box-sizing: border-box; display: flex; justify-content: center; text-align: center; will-change: transform, opacity; }
+  .title h1 { font-family: Fredoka; font-weight: 700; font-size: 150px; line-height: .95; margin: 0; text-shadow: 0 9px 0 #ffc9d9; }
+  .title h1 span { color: var(--jam); text-shadow: 0 9px 0 var(--ink); }
+  .title p { font-family: Fredoka; font-weight: 600; font-size: 64px; margin: 14px 0 0; }
+  .bubble {
+    background: #fff; border: 8px solid var(--ink); border-radius: 60px; padding: 34px 50px;
+    font-family: Fredoka; font-weight: 600; font-size: 66px; line-height: 1.12; max-width: 760px;
+    box-shadow: 0 12px 0 var(--ink); position: relative;
+  }
+  .bubble::after {
+    content: ""; position: absolute; bottom: -46px; left: var(--tail, 50%); width: 60px; height: 60px; background: #fff;
+    border-right: 8px solid var(--ink); border-bottom: 8px solid var(--ink); transform: translateX(-50%) rotate(45deg) skew(8deg, 8deg);
+  }
+  .count { font-family: Fredoka; font-weight: 700; font-size: 300px; line-height: 1; color: var(--ink); text-shadow: 0 14px 0 #ffc9d9; }
+  .count.red { color: var(--jam); text-shadow: 0 14px 0 var(--ink); }
+  .label {
+    font-family: Fredoka; font-weight: 600; font-size: 54px; background: var(--custard); border: 7px solid var(--ink);
+    border-radius: 999px; padding: 12px 36px; box-shadow: 0 8px 0 var(--ink);
+  }
+  .endcard {
+    position: absolute; inset: 0; padding: 0 140px 0 40px; background: var(--pink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; text-align: center;
+  }
+  .endcard img { width: 480px; }
+  .endcard h2 { font-family: Fredoka; font-weight: 700; font-size: 112px; margin: 0; line-height: 1; text-shadow: 0 9px 0 #ffc9d9; white-space: nowrap; }
+  .endcard h2 span { color: var(--jam); text-shadow: 0 9px 0 var(--ink); }
+  .endcard p { font-family: Fredoka; font-weight: 600; font-size: 56px; margin: 0; max-width: 820px; line-height: 1.15; }
+  .endcard .follow { font-family: Nunito; font-weight: 800; font-size: 46px; background: var(--jam); color: #fff; border: 7px solid var(--ink); border-radius: 999px; padding: 18px 48px; box-shadow: 0 10px 0 var(--ink); margin-top: 20px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <svg id="scene" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="gingham" width="80" height="80" patternUnits="userSpaceOnUse">
+        <rect width="80" height="80" fill="#fff"/>
+        <rect width="40" height="80" fill="#d92f63" opacity=".45"/>
+        <rect width="80" height="40" fill="#d92f63" opacity=".45"/>
+      </pattern>
+      <clipPath id="bite"><path id="bite-path"/></clipPath>
+    </defs>
+    <!-- the kitchen table -->
+    <rect x="0" y="1500" width="1080" height="420" fill="url(#gingham)"/>
+    <rect x="0" y="1494" width="1080" height="14" fill="#3b1f14"/>
+
+    <!-- teacup, back half (inside and tea) -->
+    <g id="cup-back">
+      <ellipse cx="0" cy="250" rx="330" ry="30" fill="#3b1f14" opacity=".18"/>
+      <ellipse cx="0" cy="236" rx="320" ry="40" fill="#fffdfb" stroke="#3b1f14" stroke-width="12"/>
+      <ellipse cx="0" cy="0" rx="250" ry="56" fill="#fffdfb" stroke="#3b1f14" stroke-width="12"/>
+      <ellipse cx="0" cy="8" rx="224" ry="40" fill="#9a5f33"/>
+      <ellipse id="ripple" cx="0" cy="8" rx="120" ry="20" fill="none" stroke="#fff" stroke-width="6" opacity="0"/>
+      <g id="steam" fill="none" stroke="#a993bf" stroke-width="12" stroke-linecap="round"></g>
+      <g id="crumb" opacity="0"><ellipse cx="0" cy="0" rx="34" ry="12" fill="#c99a55" stroke="#3b1f14" stroke-width="6"/></g>
+    </g>
+
+    <!-- Reggie -->
+    <g id="reggie">
+      <g id="legs" stroke="#3b1f14" stroke-width="18" stroke-linecap="round" fill="none">
+        <path id="leg-l" d="M-70 200 L-86 300"/>
+        <path id="leg-r" d="M70 200 L86 300"/>
+        <ellipse cx="-96" cy="306" rx="40" ry="20" fill="#d92f63" stroke-width="10"/>
+        <ellipse cx="96" cy="306" rx="40" ry="20" fill="#d92f63" stroke-width="10"/>
+      </g>
+      <g id="arm-l" stroke="#3b1f14" stroke-width="18" stroke-linecap="round" fill="none">
+        <path d="M-200 30 Q-280 60 -300 140"/>
+        <circle cx="-302" cy="152" r="26" fill="#fff6e0" stroke-width="10"/>
+      </g>
+      <g id="arm-r" stroke="#3b1f14" stroke-width="18" stroke-linecap="round" fill="none">
+        <path d="M200 30 Q280 60 300 140"/>
+        <circle cx="302" cy="152" r="26" fill="#fff6e0" stroke-width="10"/>
+      </g>
+      <g id="body" clip-path="url(#bite)">
+        <circle r="230" fill="#e3b878" stroke="#3b1f14" stroke-width="14"/>
+        <circle r="206" fill="none" stroke="#a37a3f" stroke-width="5" opacity=".5"/>
+        <ellipse cx="-90" cy="-120" rx="90" ry="40" fill="#fff" opacity=".18" transform="rotate(-35 -90 -120)"/>
+        <g id="holes" fill="#8a5a2b"></g>
+        <text x="0" y="160" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-weight="700" font-size="40" letter-spacing="6" fill="#8a5a2b" opacity=".6">RICH TEA</text>
+        <path id="stain" fill="#7a4220" opacity="0"/>
+      </g>
+      <path id="bite-edge" fill="none" stroke="#3b1f14" stroke-width="12" stroke-linejoin="round" opacity="0"/>
+      <g id="face">
+        <path id="brow-l" d="M-110 -118 Q-70 -136 -30 -118" fill="none" stroke="#3b1f14" stroke-width="14" stroke-linecap="round"/>
+        <path id="brow-r" d="M30 -118 Q70 -136 110 -118" fill="none" stroke="#3b1f14" stroke-width="14" stroke-linecap="round"/>
+        <g id="eye-l" transform="translate(-70 -40)">
+          <ellipse rx="44" ry="54" fill="#fff" stroke="#3b1f14" stroke-width="10"/>
+          <g class="pupil"><circle r="22" fill="#3b1f14"/><circle cx="-7" cy="-8" r="7" fill="#fff"/></g>
+        </g>
+        <g id="eye-r" transform="translate(70 -40)">
+          <ellipse rx="44" ry="54" fill="#fff" stroke="#3b1f14" stroke-width="10"/>
+          <g class="pupil"><circle r="22" fill="#3b1f14"/><circle cx="-7" cy="-8" r="7" fill="#fff"/></g>
+        </g>
+        <ellipse cx="-128" cy="40" rx="34" ry="20" fill="#ff7aa2" opacity=".55"/>
+        <ellipse cx="128" cy="40" rx="34" ry="20" fill="#ff7aa2" opacity=".55"/>
+        <path id="mouth" fill="none" stroke="#3b1f14" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+        <path id="sweat" d="M0 -26 C14 -6 20 6 20 14 A20 20 0 0 1 -20 14 C-20 6 -14 -6 0 -26Z" fill="#9ad7f5" stroke="#3b1f14" stroke-width="6" opacity="0"/>
+      </g>
+    </g>
+
+    <!-- teacup, front half -->
+    <g id="cup-front">
+      <path d="M232 60 h40 a90 90 0 0 1 0 180 h-70" fill="none" stroke="#3b1f14" stroke-width="44" stroke-linecap="round"/>
+      <path d="M232 60 h40 a90 90 0 0 1 0 180 h-70" fill="none" stroke="#fffdfb" stroke-width="22" stroke-linecap="round"/>
+      <path d="M-250 0 A250 56 0 0 0 250 0 Q246 180 120 232 L-120 232 Q-246 180 -250 0 Z" fill="#fffdfb" stroke="#3b1f14" stroke-width="12" stroke-linejoin="round"/>
+      <path d="M-226 84 Q0 140 226 84" fill="none" stroke="#3e6fb5" stroke-width="12"/>
+      <path d="M-206 120 Q0 170 206 120" fill="none" stroke="#d92f63" stroke-width="8"/>
+      <path d="M-200 30 Q-190 130 -120 200" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" opacity=".7"/>
+    </g>
+
+    <g id="drops"></g>
+  </svg>
+
+  <div class="layer title" id="title" style="top:340px"><div><h1>Meet <span>Reggie</span></h1><p>the Rich Tea</p></div></div>
+  <div class="layer" id="b1" style="top:360px"><div class="bubble" style="--tail:40%">Hello! I'm Reggie.</div></div>
+  <div class="layer" id="b2" style="top:360px"><div class="bubble" style="--tail:40%">People say Rich Teas can't handle a dunk.</div></div>
+  <div class="layer" id="b3" style="top:380px"><div class="bubble" style="--tail:30%">I'll show them.</div></div>
+  <div class="layer" id="lbl" style="top:600px"><div class="label">Dunk window: 2 seconds</div></div>
+  <div class="layer" id="c1" style="top:380px"><div class="count">1…</div></div>
+  <div class="layer" id="c2" style="top:380px"><div class="count">2…</div></div>
+  <div class="layer" id="c3" style="top:380px"><div class="count red">3?!</div></div>
+  <div class="layer" id="b4" style="top:380px"><div class="bubble" style="--tail:35%">…I'm fine.<br>Totally fine.</div></div>
+  <div class="endcard" id="end">
+    <img src="../../logo-mark.svg" alt="">
+    <h2>The Biscuit <span>Tin</span></h2>
+    <p>Rich Tea: best dunked for 2 seconds. Not 3.</p>
+    <div class="follow">Follow for a Biscuit of the Day</div>
+  </div>
+</div>
+
+<script>
+const DURATION = 16;
+const $ = (id) => document.getElementById(id);
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, k) => a + (b - a) * k;
+const span = (t, a, b) => clamp((t - a) / (b - a));           // 0..1 progress of t through [a, b]
+const easeOut = (k) => 1 - Math.pow(1 - k, 3);
+const easeInOut = (k) => (k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2);
+const backOut = (k) => { const c = 1.9; return 1 + (c + 1) * Math.pow(k - 1, 3) + c * Math.pow(k - 1, 2); };
+// a bounce that lands at k = 1
+const bounceOut = (k) => {
+  const n = 7.5625, d = 2.75;
+  if (k < 1 / d) return n * k * k;
+  if (k < 2 / d) return n * (k -= 1.5 / d) * k + 0.75;
+  if (k < 2.5 / d) return n * (k -= 2.25 / d) * k + 0.9375;
+  return n * (k -= 2.625 / d) * k + 0.984375;
+};
+
+// Docker holes round the edge of the biscuit, leaving room for the face.
+(function holes() {
+  let s = "";
+  for (let i = 0; i < 18; i++) {
+    const a = (i / 18) * Math.PI * 2;
+    s += `<circle cx="${(178 * Math.cos(a)).toFixed(1)}" cy="${(178 * Math.sin(a)).toFixed(1)}" r="7"/>`;
+  }
+  $("holes").innerHTML = s;
+})();
+
+// Seeded random numbers, so every render of a frame is identical.
+function rng(seed) {
+  return () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+}
+const R = rng(42);
+const BITE = Array.from({ length: 13 }, () => R());           // jagged edge left by the tea
+const SPLASH = Array.from({ length: 18 }, () => [R(), R(), R()]);
+const DRIPS = Array.from({ length: 7 }, () => [R(), R()]);
+
+// The body is clipped above `cut` (local y). The edge is jagged once the tea has had it.
+function bitePath(cut, jag) {
+  let d = `M-260 -260 L260 -260 L260 ${cut}`;
+  for (let i = 12; i >= 0; i--) {
+    const x = -260 + (520 * i) / 12;
+    const y = cut + (BITE[i] - 0.5) * jag * 2 + (i % 2 ? jag * 0.6 : -jag * 0.4);
+    d += ` L${x.toFixed(1)} ${y.toFixed(1)}`;
+  }
+  return d + " Z";
+}
+function edgePath(cut, jag) {
+  // the same jagged line, only across the biscuit, for the chocolate outline
+  const pts = [];
+  for (let i = 0; i <= 12; i++) {
+    const x = -260 + (520 * i) / 12;
+    const y = cut + (BITE[i] - 0.5) * jag * 2 + (i % 2 ? jag * 0.6 : -jag * 0.4);
+    if (Math.hypot(x, y) < 226) pts.push(`${x.toFixed(1)} ${y.toFixed(1)}`);
+  }
+  return pts.length ? "M" + pts.join(" L") : "";
+}
+
+const MOUTHS = {
+  smile: "M-56 54 Q0 104 56 54",
+  grin: "M-62 46 Q0 120 62 46 Z",
+  nervous: "M-62 70 q15.5 -16 31 0 t31 0 t31 0 t31 0",
+  determined: "M-48 64 L48 58",
+  o: "M0 46 a24 30 0 1 0 0.1 0 Z",
+  fine: "M-40 70 Q0 86 44 58",
+};
+const BROWS = {
+  happy: [["M-110 -118 Q-70 -136 -30 -118"], ["M30 -118 Q70 -136 110 -118"]],
+  worried: [["M-110 -112 Q-70 -126 -30 -142"], ["M30 -142 Q70 -126 110 -112"]],
+  cross: [["M-110 -144 Q-70 -130 -30 -112"], ["M30 -112 Q70 -130 110 -144"]],
+  shocked: [["M-110 -150 Q-70 -170 -30 -150"], ["M30 -150 Q70 -170 110 -150"]],
+};
+
+function show(id, t, a, b, { rise = 40 } = {}) {
+  // pop in over 0.25s at a, fade out over 0.2s at b
+  const el = $(id);
+  const kIn = span(t, a, a + 0.25), kOut = span(t, b - 0.2, b);
+  const visible = t >= a && t <= b;
+  const s = visible ? lerp(0.6, 1, backOut(kIn)) : 1;
+  el.style.opacity = visible ? Math.min(kIn * 1.4, 1 - kOut) : 0;
+  el.style.transform = `translateY(${(1 - easeOut(kIn)) * rise}px) scale(${s})`;
+}
+
+function render(t) {
+  t = clamp(t, 0, DURATION);
+
+  // ---------- Reggie's position ----------
+  const HOME = { x: 290, y: 1170 };
+  const DUNK = { x: 745, y: 1225 };
+  let x = HOME.x, y = HOME.y, rot = 0, sx = 1, sy = 1, scale = 1;
+
+  // drops in from above and bounces on the table
+  if (t < 1.4) {
+    const k = span(t, 0.3, 1.4);
+    // after the first landing (k = 0.36) the bounces are halved, so he stays below the title
+    y = HOME.y - (1 - bounceOut(k)) * (HOME.y + 500) * (k > 0.364 ? 0.5 : 1);
+    rot = (1 - k) * -25;
+  }
+  // squash on the first landing
+  const land = span(t, 0.62, 0.8);
+  if (land > 0 && land < 1) { const q = Math.sin(land * Math.PI); sy = 1 - 0.18 * q; sx = 1 + 0.14 * q; }
+  // idle bob
+  if (t >= 1.4 && t < 8.8) { y += Math.sin((t - 1.4) * 4) * 8; rot = Math.sin((t - 1.4) * 2) * 3; }
+  // nervous shiver
+  if (t >= 4.2 && t < 6.4) { x += Math.sin(t * 60) * 4; }
+  // hops up and over into the cup
+  if (t >= 8.8 && t < 9.7) {
+    const k = easeInOut(span(t, 8.8, 9.7));
+    x = lerp(HOME.x, DUNK.x, k);
+    y = lerp(HOME.y, DUNK.y - 300, k) - Math.sin(k * Math.PI) * 360;
+    rot = lerp(0, 18, k) + Math.sin(k * Math.PI) * 25;
+    scale = lerp(1, 0.78, k);
+  }
+  // sinks in and holds while the count runs
+  if (t >= 9.7 && t < 11.4) {
+    const k = easeOut(span(t, 9.7, 10.0));
+    x = DUNK.x + Math.sin(t * 9) * 3;
+    y = lerp(DUNK.y - 300, DUNK.y, k);
+    rot = 18; scale = 0.78;
+  }
+  // springs out of the cup and lands back home
+  if (t >= 11.4 && t < 12.3) {
+    const k = easeInOut(span(t, 11.4, 12.3));
+    x = lerp(DUNK.x, HOME.x, k);
+    y = lerp(DUNK.y, HOME.y, k) - Math.sin(k * Math.PI) * 460;
+    rot = lerp(18, 0, k) - Math.sin(k * Math.PI) * 30;
+    scale = lerp(0.78, 1, k);
+  }
+  if (t >= 12.3) {
+    const k = span(t, 12.3, 12.5); const q = Math.sin(k * Math.PI);
+    sy = 1 - 0.14 * q; sx = 1 + 0.1 * q;
+    rot = Math.sin((t - 12.3) * 3) * 2;
+  }
+  $("reggie").setAttribute("transform", `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${rot.toFixed(2)}) scale(${(scale * sx).toFixed(3)} ${(scale * sy).toFixed(3)})`);
+
+  // ---------- arms and legs ----------
+  let armR = 0, armL = 0;
+  if (t >= 1.5 && t < 3.6) armR = -110 + Math.sin((t - 1.5) * 14) * 25;          // waving
+  else if (t >= 6.8 && t < 8.6) { armR = -40; armL = 40; }                       // fists up, ready
+  else if (t >= 8.8 && t < 9.7) { armR = -150; armL = 150; }                     // arms up for the jump
+  else if (t >= 11.4 && t < 12.3) { armR = -160; armL = 160; }                   // flailing out of the cup
+  else if (t >= 12.6) armR = -70 + Math.sin(t * 3) * 6;                           // a small "it's fine" gesture
+  $("arm-r").setAttribute("transform", `rotate(${armR.toFixed(1)} 200 30)`);
+  $("arm-l").setAttribute("transform", `rotate(${armL.toFixed(1)} -200 30)`);
+  const kick = t >= 8.8 && t < 9.7 ? 18 : 0;
+  $("leg-l").setAttribute("d", `M-70 200 L${-86 - kick} ${300 - kick}`);
+  $("leg-r").setAttribute("d", `M70 200 L${86 + kick} ${300 - kick}`);
+  // tuck the legs away while he's in the cup, so his shoes don't poke out under the saucer
+  $("legs").setAttribute("opacity", t >= 9.9 && t < 11.4 ? 0 : 1);
+
+  // ---------- face ----------
+  let mouth = "smile", brows = "happy", look = [0, 0];
+  if (t >= 1.5 && t < 4) mouth = "grin";
+  if (t >= 4 && t < 6.6) { mouth = "nervous"; brows = "worried"; look = [-6, 8]; }
+  if (t >= 6.6 && t < 7.2) look = [16, 4];                                           // eyes the cup
+  if (t >= 7.2 && t < 9.7) { mouth = "determined"; brows = "cross"; look = [14, 0]; }
+  if (t >= 9.7 && t < 11.4) { mouth = t > 10.9 ? "o" : "determined"; brows = t > 10.9 ? "shocked" : "cross"; look = [0, -10]; }
+  if (t >= 11.4 && t < 12.6) { mouth = "o"; brows = "shocked"; }
+  if (t >= 12.6 && t < 13.2) { mouth = "o"; brows = "shocked"; look = [0, 18]; }     // looks down at what's left
+  if (t >= 13.2) { mouth = "fine"; brows = "worried"; look = [-10, 0]; }
+  $("mouth").setAttribute("d", MOUTHS[mouth]);
+  $("mouth").setAttribute("fill", mouth === "grin" ? "#a8204b" : mouth === "o" ? "#5a1830" : "none");
+  $("brow-l").setAttribute("d", BROWS[brows][0][0]);
+  $("brow-r").setAttribute("d", BROWS[brows][1][0]);
+  document.querySelectorAll(".pupil").forEach((p) => p.setAttribute("transform", `translate(${look[0]} ${look[1]})`));
+  // blinks
+  const blinkAt = [2.6, 5.4, 8.1, 13.9];
+  const blinking = blinkAt.some((b) => t >= b && t < b + 0.14);
+  $("eye-l").setAttribute("transform", `translate(-70 -40) scale(1 ${blinking ? 0.1 : 1})`);
+  $("eye-r").setAttribute("transform", `translate(70 -40) scale(1 ${blinking ? 0.1 : 1})`);
+  // sweat drop while nervous, and again at the end
+  const sweatK = t >= 4.3 && t < 6.6 ? span(t, 4.3, 6.6) : t >= 13.3 ? span(t, 13.3, 14.6) : -1;
+  $("sweat").setAttribute("opacity", sweatK >= 0 ? 1 : 0);
+  if (sweatK >= 0) $("sweat").setAttribute("transform", `translate(${150} ${-130 + sweatK * 90})`);
+
+  // ---------- the bite the tea takes ----------
+  // full biscuit until he comes out of the cup, then the bottom third is gone
+  const gone = t >= 11.4 ? 1 : 0;
+  const cut = gone ? 70 : 400;
+  const jag = gone ? 26 : 0;
+  $("bite-path").setAttribute("d", bitePath(cut, jag));
+  $("bite-edge").setAttribute("d", gone ? edgePath(cut, jag) : "");
+  $("bite-edge").setAttribute("opacity", gone);
+  $("stain").setAttribute("d", gone ? bitePath(cut - 60, jag).replace("M-260 -260 L260 -260", "M-260 260 L260 260") : "");
+  $("stain").setAttribute("opacity", gone ? 0.35 : 0);
+
+  // ---------- teacup ----------
+  const cupK = easeOut(span(t, 6.3, 7.0));
+  const cupX = lerp(1500, 770, cupK) + (t >= 9.7 && t < 11.4 ? Math.sin(t * 40) * 3 : 0);
+  const cupY = 1260;
+  $("cup-back").setAttribute("transform", `translate(${cupX.toFixed(1)} ${cupY}) scale(.85)`);
+  $("cup-front").setAttribute("transform", `translate(${cupX.toFixed(1)} ${cupY}) scale(.85)`);
+  // steam
+  let steam = "";
+  for (let i = 0; i < 3; i++) {
+    const p = ((t * 0.6 + i / 3) % 1);
+    const sx0 = -90 + i * 90, sy0 = -60 - p * 220;
+    steam += `<path d="M${sx0} ${sy0} q-26 -40 0 -80 t0 -80" opacity="${(Math.sin(p * Math.PI) * 0.8).toFixed(2)}"/>`;
+  }
+  $("steam").innerHTML = steam;
+  // ripple as he goes in
+  const rip = span(t, 9.75, 10.6);
+  $("ripple").setAttribute("opacity", rip > 0 && rip < 1 ? (1 - rip) * 0.9 : 0);
+  $("ripple").setAttribute("rx", 120 + rip * 120);
+  // the missing piece bobbing in the tea afterwards
+  const crumbK = span(t, 11.5, 11.9);
+  $("crumb").setAttribute("opacity", crumbK);
+  $("crumb").setAttribute("transform", `translate(${-40 + Math.sin(t * 2) * 30} ${2 + Math.sin(t * 3) * 4}) rotate(${Math.sin(t * 2) * 10})`);
+
+  // ---------- splashes and drips ----------
+  let drops = "";
+  const splash = (t0, n, power) => {
+    for (let i = 0; i < n; i++) {
+      const [a, b, c] = SPLASH[i];
+      const dt = t - t0;
+      if (dt < 0 || dt > 1.1) continue;
+      const vx = (a - 0.5) * 900 * power, vy = -(500 + b * 600) * power;
+      const px = cupX - 30 + (c - 0.5) * 220 + vx * dt, py = cupY - 20 + vy * dt + 0.5 * 2600 * dt * dt;
+      if (py > 1490) continue;                                   // landed on the tablecloth
+      drops += `<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="${(10 + c * 12).toFixed(1)}" fill="#9a5f33" stroke="#3b1f14" stroke-width="5" opacity="${(1 - dt / 1.1).toFixed(2)}"/>`;
+    }
+  };
+  splash(9.78, 18, 1);
+  splash(11.42, 12, 0.8);
+  // drips falling from Reggie's soggy edge once he's home
+  if (t >= 12.3 && t < 14.2) {
+    DRIPS.forEach(([a, b], i) => {
+      const t0 = 12.3 + i * 0.32 + a * 0.2, dt = t - t0;
+      if (dt < 0 || dt > 0.7) return;
+      const px = HOME.x - 150 + b * 300, py = HOME.y + 60 + dt * dt * 1800;
+      drops += `<path d="M${px} ${py - 26} C${px + 12} ${py - 8} ${px + 16} ${py} ${px + 16} ${py + 6} A16 16 0 0 1 ${px - 16} ${py + 6} C${px - 16} ${py} ${px - 12} ${py - 8} ${px} ${py - 26}Z" fill="#9a5f33" stroke="#3b1f14" stroke-width="5"/>`;
+    });
+  }
+  $("drops").innerHTML = drops;
+
+  // ---------- words ----------
+  show("title", t, 0.15, 1.6);
+  show("b1", t, 1.6, 4.0);
+  show("b2", t, 4.0, 6.6);
+  show("b3", t, 7.0, 8.8);
+  show("lbl", t, 7.3, 8.9, { rise: -30 });
+  show("c1", t, 9.85, 10.4, { rise: 0 });
+  show("c2", t, 10.4, 10.95, { rise: 0 });
+  show("c3", t, 10.95, 11.45, { rise: 0 });
+  show("b4", t, 12.6, 13.95);
+  const c3 = $("c3"); if (t >= 10.95 && t < 11.45) c3.style.transform += ` rotate(${Math.sin(t * 50) * 6}deg)`;
+
+  // ---------- end card ----------
+  const endK = easeOut(span(t, 14.0, 14.45));
+  $("end").style.opacity = endK;
+  $("end").style.transform = `translateY(${(1 - endK) * 120}px)`;
+  $("end").style.visibility = t >= 14.0 ? "visible" : "hidden";
+}
+
+window.render = render;
+window.DURATION = DURATION;
+render(0);
+
+// Opened in a browser (rather than being captured), play it in real time on a loop.
+if (!navigator.webdriver) {
+  const start = performance.now();
+  const tick = (now) => { render(((now - start) / 1000) % DURATION); requestAnimationFrame(tick); };
+  document.fonts.ready.then(() => requestAnimationFrame(tick));
+}
+</script>
+</body>
+</html>

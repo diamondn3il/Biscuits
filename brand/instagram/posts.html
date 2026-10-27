@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:ital,wght@0,600;0,700;0,800;1,600&display=swap">
+<style>
+  :root {
+    --ink: #3b1f14; --muted: #6e4a3c; --jam: #d92f63; --custard: #ffc94a; --cream: #fff6e0;
+    --doily: #ffffff; --doily-hole: rgba(59, 31, 20, 0.14);
+    --clay: 0 12px 0 #3b1f14, inset -10px -14px 24px rgba(59,31,20,.06), inset 10px 10px 20px rgba(255,255,255,.8);
+  }
+  body { margin: 0; background: #ddd; font-family: Nunito, sans-serif; color: var(--ink); }
+  .post {
+    width: 1080px; height: 1350px; position: relative; overflow: hidden; box-sizing: border-box;
+    padding: 80px; display: flex; flex-direction: column; margin-bottom: 40px;
+  }
+  .sprinkles::before {
+    content: ""; position: absolute; inset: 0; opacity: .6; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cg stroke-linecap='round' stroke-width='9'%3E%3Cpath d='M30 44l18-9' stroke='%23ff7aa2'/%3E%3Cpath d='M100 26l6 18' stroke='%23ffc94a'/%3E%3Cpath d='M188 58l18 6' stroke='%239ad7f5'/%3E%3Cpath d='M230 130l-6 18' stroke='%238ee0b8'/%3E%3Cpath d='M144 116l14-12' stroke='%23c9a7ff'/%3E%3Cpath d='M58 144l-14 12' stroke='%23ffc94a'/%3E%3Cpath d='M116 202l18 3' stroke='%23ff7aa2'/%3E%3Cpath d='M202 216l6-18' stroke='%23c9a7ff'/%3E%3Cpath d='M22 230l14 9' stroke='%239ad7f5'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 260px 260px;
+  }
+  .post > * { position: relative; }
+  h1, h2 { font-family: Fredoka, sans-serif; margin: 0; line-height: 1; font-weight: 700; }
+  .sticker {
+    position: absolute; background: var(--custard); border: 6px solid var(--ink); border-radius: 999px;
+    font-family: Fredoka; font-weight: 600; font-size: 44px; padding: 10px 34px; box-shadow: 0 7px 0 var(--ink);
+  }
+  .cups { display: inline-flex; gap: 6px; color: var(--jam); }
+  .cups svg { width: 54px; height: 54px; }
+  .cups .off { opacity: .22; color: var(--ink); }
+  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; font-family: Fredoka; font-weight: 600; font-size: 38px; }
+  .foot img { width: 96px; }
+  .handle { font-family: Nunito; font-weight: 800; font-size: 34px; color: var(--muted); }
+
+  /* 1. Welcome, in the website's dark theme: the hero's deep plum, purple clay card and pink drips */
+  #welcome {
+    --plum: #23162b; --card: #33223d; --card-2: #3f2a4a; --night: #120a16; --pinky: #ff6f98; --glow: #fff1f5; --soft: #d6bfcc;
+    background: var(--plum); color: var(--glow); align-items: center; justify-content: center; padding: 0 70px;
+  }
+  #welcome.sprinkles::before { opacity: .38; }
+  #welcome .drip {
+    position: absolute; inset: 0 0 auto; height: 160px; background: var(--pinky);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='64' viewBox='0 0 160 64'%3E%3Cpath d='M0 0h160v22c-8 0-10 6-10 14s-4 14-10 14-10-6-10-14 0-14-12-14-12 8-12 20-4 22-12 22-12-10-12-22-2-20-14-20-12 4-14 12-6 10-12 10-10-4-12-12-6-10-14-10-10 6-10 14-4 12-10 12S8 30 0 22z'/%3E%3C/svg%3E") repeat-x top / 400px 160px;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='64' viewBox='0 0 160 64'%3E%3Cpath d='M0 0h160v22c-8 0-10 6-10 14s-4 14-10 14-10-6-10-14 0-14-12-14-12 8-12 20-4 22-12 22-12-10-12-22-2-20-14-20-12 4-14 12-6 10-12 10-10-4-12-12-6-10-14-10-10 6-10 14-4 12-10 12S8 30 0 22z'/%3E%3C/svg%3E") repeat-x top / 400px 160px;
+  }
+  #welcome .floaters { position: absolute; inset: 0; z-index: 1; }
+  #welcome .floaters span { position: absolute; width: 190px; }
+  #welcome .floaters .biscuit-svg { width: 100%; height: auto; display: block; overflow: visible; filter: drop-shadow(0 10px 0 rgba(0,0,0,.25)); }
+  #welcome .card {
+    position: relative; z-index: 2; width: 100%; box-sizing: border-box;
+    background: var(--card); border: 7px solid var(--night); border-radius: 72px; padding: 70px 64px 66px;
+    box-shadow: 0 16px 0 var(--night), inset -12px -16px 28px rgba(0,0,0,.18), inset 12px 12px 24px rgba(255,255,255,.06);
+    display: flex; flex-direction: column; gap: 30px; rotate: -1.6deg;
+  }
+  #welcome .card::after {
+    content: "Freshly baked"; position: absolute; top: -40px; right: 56px; rotate: 6deg;
+    background: var(--custard); color: var(--ink); border: 6px solid var(--night); border-radius: 999px; padding: 8px 30px;
+    font-family: Fredoka; font-weight: 600; font-size: 40px; box-shadow: 0 7px 0 var(--night);
+  }
+  #welcome .eyebrow { font-weight: 800; font-size: 30px; letter-spacing: .13em; text-transform: uppercase; color: var(--soft); margin: 0; }
+  #welcome h1 { font-size: 136px; line-height: .98; color: var(--glow); text-shadow: 0 9px 0 var(--card-2); white-space: nowrap; }
+  #welcome h1 img {
+    /* the tin stands in for the word "Tin": cap height, with the drum's base on the baseline */
+    --w: 1.02em; width: var(--w); vertical-align: baseline;
+    margin: calc(var(--w) * -0.166) 0 calc(var(--w) * -0.117) 0.04em;
+  }
+  #welcome .pills { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 6px; }
+  #welcome .pill {
+    font-family: Fredoka; font-weight: 600; font-size: 40px; padding: 16px 38px; border-radius: 999px;
+    border: 6px solid var(--night); box-shadow: 0 8px 0 var(--night); background: var(--card-2); color: var(--glow);
+  }
+  #welcome .pill.go { background: var(--pinky); color: #2a0f1a; }
+  #welcome p { font-size: 42px; line-height: 1.4; font-weight: 700; margin: 0; color: var(--glow); }
+
+  /* 2 and 3 share the welcome post's dark theme */
+  #welcome, #daily, #debate { --drip: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='64' viewBox='0 0 160 64'%3E%3Cpath d='M0 0h160v22c-8 0-10 6-10 14s-4 14-10 14-10-6-10-14 0-14-12-14-12 8-12 20-4 22-12 22-12-10-12-22-2-20-14-20-12 4-14 12-6 10-12 10-10-4-12-12-6-10-14-10-10 6-10 14-4 12-10 12S8 30 0 22z'/%3E%3C/svg%3E"); }
+  #daily, #debate {
+    --plum: #23162b; --card: #33223d; --card-2: #3f2a4a; --night: #120a16; --pinky: #ff6f98; --glow: #fff1f5; --soft: #d6bfcc;
+    background: var(--plum); color: var(--glow);
+  }
+  #daily.sprinkles::before, #debate.sprinkles::before { opacity: .38; }
+  #daily .drip, #debate .drip {
+    position: absolute; inset: 0 0 auto; height: 160px; background: var(--pinky);
+    -webkit-mask: var(--drip) repeat-x top / 400px 160px; mask: var(--drip) repeat-x top / 400px 160px;
+  }
+  .foot img { width: 96px; }
+
+  /* 2. Biscuit of the Day */
+  #daily { padding-top: 120px; }
+  #daily .card {
+    position: relative; z-index: 2;
+    background: var(--card); border: 7px solid var(--night); border-radius: 64px;
+    box-shadow: 0 14px 0 var(--night), inset -12px -16px 28px rgba(0,0,0,.18), inset 12px 12px 24px rgba(255,255,255,.06);
+    padding: 50px 56px; display: flex; flex-direction: column; gap: 18px; flex: 1; rotate: -1.5deg;
+  }
+  /* the Cream Sandwiches custard pastel, bright so the biscuit lifts off the dark card */
+  #daily .art { width: 380px; align-self: center; background: #ffe7a3; border: 6px solid var(--night); border-radius: 50%; padding: 20px; box-shadow: 0 8px 0 var(--night); }
+  #daily h2 { font-size: 100px; white-space: nowrap; color: var(--glow); text-shadow: 0 8px 0 var(--card-2); }
+  #daily .meta { white-space: nowrap; font-size: 36px; font-weight: 700; color: var(--soft); display: flex; justify-content: space-between; align-items: center; }
+  #daily .cups { color: var(--pinky); }
+  #daily .cups .off { color: var(--glow); opacity: .25; }
+  #daily .fact { background: var(--custard); color: var(--ink); border: 5px solid var(--night); border-radius: 36px; padding: 24px 30px; font-size: 33px; line-height: 1.35; font-weight: 700; rotate: 1deg; box-shadow: 0 7px 0 var(--night); }
+  #daily .rosette { position: absolute; z-index: 3; top: 80px; right: 40px; width: 210px; rotate: 10deg; }
+  #daily .foot { margin-top: 40px; position: relative; z-index: 2; }
+
+  /* 3. Cake or biscuit? */
+  #debate { align-items: center; text-align: center; padding-top: 150px; }
+  #debate h1 { font-size: 150px; line-height: .95; color: var(--glow); text-shadow: 0 9px 0 var(--card-2); }
+  #debate h1 em { font-style: normal; color: var(--pinky); text-shadow: 0 9px 0 var(--night); }
+  #debate .art { width: 500px; margin: 10px 0 0; rotate: -8deg; filter: drop-shadow(0 12px 0 rgba(0,0,0,.3)); }
+  #debate .stamp {
+    position: absolute; top: 640px; right: 80px; rotate: 14deg; z-index: 2;
+    border: 8px solid var(--pinky); color: var(--pinky); border-radius: 26px; padding: 14px 28px;
+    font-family: Fredoka; font-weight: 700; font-size: 56px; line-height: 1; background: rgba(35,22,43,.88);
+    box-shadow: 0 8px 0 var(--night);
+  }
+  #debate .stamp small { display: block; font-size: 30px; margin-top: 8px; font-weight: 600; color: var(--glow); }
+  #debate p { font-size: 42px; font-weight: 700; line-height: 1.3; max-width: 860px; margin: 20px 0 0; color: var(--glow); }
+  #debate .foot { width: 100%; }
+</style>
+</head>
+<body>
+
+<section class="post sprinkles" id="welcome">
+  <div class="drip"></div>
+  <div class="floaters" id="welcome-floaters"></div>
+  <div class="card">
+    <p class="eyebrow">A field guide to British biscuits</p>
+    <h1>The Biscuit <img src="../logo-mark.svg" alt="Tin"></h1>
+    <!-- copy matches the website's hero; the pills point people to the link in the bio -->
+    <p>An entirely devoted guide to Britain's finest biscuits: where they came from, how to bake them at home, and how long they last in a mug of builder's tea.</p>
+    <div class="pills"><span class="pill go">Link in bio</span><span class="pill">Put the kettle on</span></div>
+  </div>
+</section>
+
+<section class="post sprinkles" id="daily">
+  <div class="drip"></div>
+  <div class="card">
+    <div class="art" id="daily-art"></div>
+    <h2>Custard Cream</h2>
+    <div class="meta"><span>c. 1908 · Cream Sandwiches</span><span id="daily-cups"></span></div>
+    <p class="fact">The ferns and scrolls on top have barely changed in over a century. And there's no actual custard inside.</p>
+  </div>
+  <svg class="rosette" id="rosette" viewBox="0 0 120 172"></svg>
+  <div class="foot"><span>Dunk it for about 4 seconds</span><img src="../logo-mark.svg" alt=""></div>
+</section>
+
+<section class="post sprinkles" id="debate">
+  <div class="drip"></div>
+  <h1>Cake or<br><em>biscuit?</em></h1>
+  <div class="art" id="debate-art"></div>
+  <div class="stamp">LEGALLY A CAKE<small>VAT tribunal, 1991</small></div>
+  <p>McVitie's argued cakes go hard when stale and biscuits go soft. A Jaffa Cake goes hard. Case closed?</p>
+  <div class="foot"><span>Tell us in the comments</span><img src="../logo-mark.svg" alt=""></div>
+</section>
+
+<script src="../../biscuits.js"></script>
+<script src="../../art.js"></script>
+<script>
+  const by = (id) => window.BISCUITS.find((b) => b.id === id);
+  const FLOAT = [["jammie-dodger", 70, 190, -14], ["party-ring", 850, 120, 16], ["custard-cream", 40, 1030, 10],
+                 ["jaffa-cake", 830, 1050, -12], ["bourbon", 610, 1150, 8], ["iced-gems", 300, 1110, -6]];
+  document.getElementById("welcome-floaters").innerHTML = FLOAT.map(([id, x, y, r]) =>
+    `<span style="left:${x}px;top:${y}px;rotate:${r}deg">${BiscuitArt.svg(by(id), { noDoily: true, decorative: true })}</span>`).join("");
+  document.getElementById("daily-art").innerHTML = BiscuitArt.svg(by("custard-cream"), { decorative: true });
+  document.getElementById("debate-art").innerHTML = BiscuitArt.svg(by("jaffa-cake"), { noDoily: true, decorative: true });
+  const CUP = '<svg viewBox="0 0 24 24"><path d="M3 8h13v5a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6z" fill="currentColor"/><path d="M16 10h1.5a3 3 0 0 1 0 6H15" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
+  document.getElementById("daily-cups").innerHTML = '<span class="cups">' + [1,2,3,4,5].map((i) => `<span class="${i <= 3 ? "" : "off"}">${CUP}</span>`).join("") + "</span>";
+  document.getElementById("rosette").innerHTML = `
+    <path d="M46 78 L26 166 L44 154 L54 170 L64 84 Z" fill="#b8263f"/>
+    <path d="M74 78 L94 166 L76 154 L66 170 L56 84 Z" fill="#24407a"/>
+    <path d="${BiscuitArt.flutedPath(60, 60, 54, 26, 4)}" fill="#b8263f"/>
+    <circle cx="60" cy="60" r="44" fill="#f2c14e"/>
+    <circle cx="60" cy="60" r="38" fill="none" stroke="#b8263f" stroke-width="1.6" stroke-dasharray="3 3"/>
+    <g font-family="Fredoka, sans-serif" font-weight="700" fill="#1c2640" text-anchor="middle">
+      <text x="60" y="50" font-size="12" letter-spacing="1">BISCUIT</text>
+      <text x="60" y="64" font-size="9" font-family="Nunito, sans-serif">of the</text>
+      <text x="60" y="81" font-size="18" letter-spacing="2">DAY</text>
+    </g>`;
+</script>
+</body>
+</html>
