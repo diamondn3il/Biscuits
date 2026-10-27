@@ -65,12 +65,6 @@
     margin: calc(var(--w) * -0.166) 0 calc(var(--w) * -0.117) 0.04em;
   }
   #welcome p { font-size: 42px; line-height: 1.4; font-weight: 700; margin: 0; color: var(--glow); }
-  #welcome .pills { display: flex; gap: 14px; flex-wrap: nowrap; margin-top: 6px; }
-  #welcome .pill {
-    font-family: Fredoka; font-weight: 600; font-size: 32px; padding: 12px 24px; border-radius: 999px; white-space: nowrap;
-    border: 6px solid var(--night); box-shadow: 0 8px 0 var(--night); background: var(--card-2); color: var(--glow);
-  }
-  #welcome .pill.go { background: var(--pinky); color: #2a0f1a; }
 
   /* 2 and 3 share the welcome post's dark theme */
   #welcome, #daily, #debate { --drip: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='64' viewBox='0 0 160 64'%3E%3Cpath d='M0 0h160v22c-8 0-10 6-10 14s-4 14-10 14-10-6-10-14 0-14-12-14-12 8-12 20-4 22-12 22-12-10-12-22-2-20-14-20-12 4-14 12-6 10-12 10-10-4-12-12-6-10-14-10-10 6-10 14-4 12-10 12S8 30 0 22z'/%3E%3C/svg%3E"); }
@@ -127,9 +121,8 @@
   <div class="card">
     <p class="eyebrow">A field guide to British biscuits</p>
     <h1>The Biscuit <img src="../logo-mark.svg" alt="Tin"></h1>
-    <!-- copy and buttons match the website's hero -->
+    <!-- copy matches the website's hero; no buttons, since nothing on an Instagram post can be tapped -->
     <p>An entirely devoted guide to Britain's finest biscuits: where they came from, how to bake them at home, and how long they last in a mug of builder's tea.</p>
-    <div class="pills"><span class="pill go">Today's biscuit</span><span class="pill">Search the tin</span><span class="pill">Surprise me</span></div>
   </div>
 </section>
 
