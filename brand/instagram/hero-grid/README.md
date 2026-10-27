@@ -2,7 +2,7 @@
 
 Six posts that together form one big banner across the top two rows of the profile grid.
 
-![How it looks on the grid](grid-preview.png)
+![How it looks on a profile](profile-mockup.png)
 
 ## Posting order
 
